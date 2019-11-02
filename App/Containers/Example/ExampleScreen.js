@@ -34,22 +34,18 @@ class ExampleScreen extends React.Component {
             <View style={Style.logoContainer}>
               <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
             </View>
-            <Text style={Style.text}>To get started, edit App.js</Text>
+            <Text style={Style.text}>Login Page</Text>
             <Text style={Style.instructions}>{instructions}</Text>
             {this.props.userErrorMessage ? (
               <Text style={Style.error}>{this.props.userErrorMessage}</Text>
             ) : (
               <View>
                 <Text style={Style.result}>
-                  {"I'm a fake user, my name is "}
-                  SuperSivaram
-                </Text>
-                <Text style={Style.result}>
-                  {this.props.liveInEurope ? 'I live in Europe !' : "I don't live in Europe."}
+                  EmailId
                 </Text>
               </View>
             )}
-            <Button onPress={() => this._fetchUser()} title="Refresh2" />
+            <Button onPress={() => this._fetchUser()} title="Login" />
           </View>
         )}
       </View>

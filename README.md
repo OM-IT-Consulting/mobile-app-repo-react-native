@@ -1,16 +1,14 @@
-<div align="center">
-    <img src="App/Assets/Images/TOM-Legend.png" alt="Logo" width="100%">
-</div>
+OM IT Consulting
 
-![GitHub Release Date](https://img.shields.io/github/release-date/thecodingmachine/react-native-boilerplate)
-![GitHub last commit](https://img.shields.io/github/last-commit/thecodingmachine/react-native-boilerplate)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/thecodingmachine/react-native-boilerplate)
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/thecodingmachine/react-native-boilerplate/latest)
-![GitHub top language](https://img.shields.io/github/languages/top/thecodingmachine/react-native-boilerplate)
+![GitHub Release Date](https://img.shields.io/github/release-date/OM-IT-Consulting/mobile-app-repo)
+![GitHub last commit](https://img.shields.io/github/last-commit/OM-IT-Consulting/mobile-app-repo)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/OM-IT-Consulting/mobile-app-repo)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/OM-IT-Consulting/mobile-app-repo/latest)
+![GitHub top language](https://img.shields.io/github/languages/top/OM-IT-Consulting/mobile-app-repo)
 
-# TheCodingMachine React Native boilerplate
+# React Native Mobile Application
 
-This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
+This project is a [React Native](https://facebook.github.io/react-native/) application that can be used to kickstart a mobile application.
 
 The boilerplate provides **an architecture optimized for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. It is extremely documented so that each piece of code that lands in your application can be understood and used.
 
@@ -125,23 +123,4 @@ Assuming you have all the requirements installed, you can setup and run the proj
   
 ## Troubleshooting
 
-### App fails to start after renaming
 
-If your application fails to start after using the `yarn run rename` command, please take a look at [this issue](https://github.com/thecodingmachine/react-native-boilerplate/issues/34)
-
-
-## About us
-
-[TheCodingMachine](https://www.thecodingmachine.com/) is a web and mobile agency based in Paris and Lyon, France. We are [constantly looking for new developers and team leaders](https://www.thecodingmachine.com/nous-rejoindre/) and we love [working with freelancers](https://coders.thecodingmachine.com/). You'll find [an overview of all our open source projects on our website](https://thecodingmachine.io/open-source) and on [Github](https://github.com/thecodingmachine).
-
-## Alternative boilerplates
-
-We looked into existing boilerplates before starting this project, and while many of them are awesome, we did not find what we were looking for.
-
-The most popular is [mcnamee's Starter Kit](https://github.com/mcnamee/react-native-starter-kit), which is unfortunately [limited by *Expo*](https://facebook.github.io/react-native/docs/getting-started#caveats) and misses Redux Saga.
-
-If we look at the rest (and ignore unmaintained projects), many popular boilerplates are too opinionated: they include 3rd party services or very strong architecture choices that we are not comfortable with. To name a few: [Snowflake](https://github.com/bartonhammond/snowflake) runs with a Hapi Server running on Redhat OpenShift, [Hasura's boilerplate](https://github.com/hasura/react-native-auth-boilerplate) uses Hasura's SaaS for authentication, [Apollo's StarterKit](https://github.com/sysgears/apollo-universal-starter-kit) is targeted at GraphQL using Apollo, the [Meteor Boilerplate](https://github.com/spencercarli/react-native-meteor-boilerplate) targets Meteor…
-
-Finally some did not contain the architecture we are looking for (the separation of concerns with Redux, Sagas, etc.), for example [re-start](https://github.com/react-everywhere/re-start).
-
-One interesting exception is [Ignite IR Boilerplate "Andross"](https://github.com/infinitered/ignite-ir-boilerplate-andross), but after consideration we decided not to use it because of the large amount of unnecessary code/components it provided.
