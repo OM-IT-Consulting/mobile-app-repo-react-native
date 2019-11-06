@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View, Button, ActivityIndicator, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import AuthenticationActions from 'App/Stores/Authentication/Actions'
+import LoginActions from 'App/Stores/Login/Actions'
 import Style from './LoginScreenStyle'
 import { Images } from 'App/Theme'
 
@@ -25,7 +25,6 @@ class LoginScreen extends React.Component {
               <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
             </View>
             <Text style={Style.text}>Login Page</Text>
-            <Text style={Style.instructions}>{instructions}</Text>
             {this.props.initialDataErrorMessage ? (
               <Text style={Style.error}>{this.props.initialDataErrorMessage}</Text>
             ) : (
@@ -61,7 +60,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-   loadInitialPageData: () => dispatch(AuthenticationActions.loadInitialPageData()),
+   loadInitialPageData: () => dispatch(LoginActions.loadInitialPageData()),
 })
 
 export default connect(

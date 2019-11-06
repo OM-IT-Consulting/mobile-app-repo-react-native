@@ -8,9 +8,9 @@ import { INITIAL_STATE } from './InitialState'
 import { createReducer } from 'reduxsauce'
 import { LoginTypes } from './Actions'
 
-export const initialData = (state) => ({
+export const loadInitialPageData = (state) => ({
   ...state,
-  initialDataIsLoading: true,
+  initialDataIsLoading: false,
   initialDataErrorMessage: null,
 })
 
@@ -32,7 +32,7 @@ export const loadInitialDataFailure = (state, { errorMessage }) => ({
  * @see https://github.com/infinitered/reduxsauce#createreducer
  */
 export const reducer = createReducer(INITIAL_STATE, {
-  [LoginTypes.INITIAL_DATA]: initialData,
+  [LoginTypes.LOAD_INITIAL_PAGE_DATA]: loadInitialPageData,
   [LoginTypes.LOAD_INITIAL_DATA_SUCCESS]: loadInitialDataSuccess,
   [LoginTypes.LOAD_INITIAL_DATA_FAILURE]: loadInitialDataFailure,
 })
