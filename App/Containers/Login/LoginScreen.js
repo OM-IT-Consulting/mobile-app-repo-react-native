@@ -10,6 +10,7 @@ import { Images } from 'App/Theme'
  * This screen displays the login page of the mobile app.
  */
 class LoginScreen extends React.Component {
+
   componentDidMount() {
     this._loadInitialPageData()
   }
@@ -24,7 +25,7 @@ class LoginScreen extends React.Component {
             <View style={Style.logoContainer}>
               <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
             </View>
-            <Text style={Style.text}>Login Page</Text>
+            <Text style={Style.text}>{this.props.initialData.payload}</Text>
             {this.props.initialDataErrorMessage ? (
               <Text style={Style.error}>{this.props.initialDataErrorMessage}</Text>
             ) : (

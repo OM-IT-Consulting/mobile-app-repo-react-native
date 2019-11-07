@@ -26,16 +26,8 @@ const userApiClient = axios.create({
 })
 
 function loadInitialPageData() {
-  // Simulate an error 50% of the time just for testing purposes
-  if (Math.random() > 0.5) {
-    return new Promise(function(resolve, reject) {
-      resolve(null)
-    })
-  }
 
-  let number = Math.floor(Math.random() / 0.1) + 1
-
-  return {"payload":"true"}
+  return {"payload":"Login Page"}
 
   /*
   return userApiClient.get(number.toString()).then((response) => {

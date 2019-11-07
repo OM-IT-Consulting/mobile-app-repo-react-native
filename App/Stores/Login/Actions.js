@@ -24,7 +24,7 @@ const { Types, Creators } = createActions({
   // The operation has started and is loading
   initialDataIsLoading: null,
   // User informations were successfully fetched
-  loadInitialDataSuccess: ['user'],
+  loadInitialDataSuccess: ['initialData'],
   // An error occurred
   loadInitialDataFailure: ['errorMessage'],
 })

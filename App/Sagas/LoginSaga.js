@@ -1,4 +1,5 @@
-import { call } from 'redux-saga/effects'
+import { put, call } from 'redux-saga/effects'
+import LoginActions from 'App/Stores/Login/Actions'
 import { loginService } from 'App/Services/LoginService'
 
 /**
@@ -6,6 +7,15 @@ import { loginService } from 'App/Services/LoginService'
  *
  */
 export function* loadInitialPageData() {
-  // Fetch user informations from an API
-  const initialPageData = yield call(loginService.loadInitialPageData)
+  // Fetch initial Data from an API
+  const initialData = yield call(loginService.loadInitialPageData)
+  console.log('initialData in LoginSaga-->',JSON.stringify(initialData));
+
+  if (initialData) {
+    yield put(LoginActions.loadInitialDataSuccess(initialData))
+  } else {
+    yield put(
+      LoginActions.loadInitialDataFailure('There was an error while fetching initial Data.')
+    )
+  }
 }
