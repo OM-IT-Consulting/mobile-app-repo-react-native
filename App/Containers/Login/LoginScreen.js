@@ -1,10 +1,17 @@
 import React from 'react'
-import { Text, View, Button, ActivityIndicator, Image } from 'react-native'
+import { Text, View, ActivityIndicator, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import LoginActions from 'App/Stores/Login/Actions'
 import Style from './LoginScreenStyle'
 import { Images } from 'App/Theme'
+import Background from '../../Components/Background';
+import Logo from '../../Components/Logo';
+import Header from '../../Components/Header';
+import Button from '../../Components/Button';
+import TextInput from '../../Components/TextInput';
+import BackButton from '../../Components/BackButton';
+import { emailValidator, passwordValidator } from '../../Core/utils';
 
 /**
  * This screen displays the login page of the mobile app.
@@ -17,28 +24,55 @@ class LoginScreen extends React.Component {
 
   render() {
     return (
-      <View style={Style.container}>
-        {this.props.initialDataIsLoading ? (
-          <ActivityIndicator size="large" color="#0000ff" />
-        ) : (
-          <View>
-            <View style={Style.logoContainer}>
-              <Image style={Style.logo} source={Images.logo} resizeMode={'contain'} />
-            </View>
-            <Text style={Style.text}>{this.props.initialData.payload}</Text>
-            {this.props.initialDataErrorMessage ? (
-              <Text style={Style.error}>{this.props.initialDataErrorMessage}</Text>
-            ) : (
-              <View>
-                <Text style={Style.result}>
-                  EmailId
-                </Text>
-              </View>
-            )}
-            <Button onPress={() => this._loadInitialPageData()} title="Login" />
-          </View>
-        )}
+    <Background>
+      <BackButton goBack={() => navigation.navigate('HomeScreen')} />
+
+      <Logo />
+
+      <Header>Welcome back.</Header>
+
+      <TextInput
+        label="Email"
+        returnKeyType="next"
+        value={email.value}
+        onChangeText={text => setEmail({ value: text, error: '' })}
+        error={!!email.error}
+        errorText={email.error}
+        autoCapitalize="none"
+        autoCompleteType="email"
+        textContentType="emailAddress"
+        keyboardType="email-address"
+      />
+
+      <TextInput
+        label="Password"
+        returnKeyType="done"
+        value={password.value}
+        onChangeText={text => setPassword({ value: text, error: '' })}
+        error={!!password.error}
+        errorText={password.error}
+        secureTextEntry
+      />
+
+      <View style={styles.forgotPassword}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ForgotPasswordScreen')}
+        >
+          <Text style={styles.label}>Forgot your password?</Text>
+        </TouchableOpacity>
       </View>
+
+      <Button mode="contained" onPress={_onLoginPressed}>
+        Login
+      </Button>
+
+      <View style={styles.row}>
+        <Text style={styles.label}>Don’t have an account? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
+          <Text style={styles.link}>Sign up</Text>
+        </TouchableOpacity>
+      </View>
+    </Background>
     )
   }
   

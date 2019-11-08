@@ -1,3 +1,4 @@
+import { DefaultTheme } from 'react-native-paper';
 /**
  * This file contains the application's colors.
  *
@@ -7,9 +8,11 @@
 
 export default {
   transparent: 'rgba(0,0,0,0)',
+  ...DefaultTheme.colors,
   //Example colors:
   text: '#212529',
-  primary: '#007bff',
+  primary: '#600EE6',
+  secondary: '#414757',
   success: '#28a745',
   error: '#dc3545',
 }

@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native'
 import Fonts from 'App/Theme/Fonts'
+import Colors from 'App/Theme/Colors'
 import ApplicationStyles from 'App/Theme/ApplicationStyles'
+
 
 export default StyleSheet.create({
   container: {
@@ -49,5 +51,21 @@ export default StyleSheet.create({
   logo: {
     width: '100%',
     height: '100%',
+  },
+  forgotPassword: {
+    width: '100%',
+    alignItems: 'flex-end',
+    marginBottom: 24,
+  },
+  row: {
+    flexDirection: 'row',
+    marginTop: 4,
+  },
+  label: {
+    color: Colors.secondary,
+  },
+  link: {
+    fontWeight: 'bold',
+    color: Colors.primary,
   },
 })
