@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image } from 'react-native'
+import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import LoginActions from 'App/Stores/Login/Actions'
@@ -18,26 +18,64 @@ import { emailValidator, passwordValidator } from '../../Core/utils';
  */
 class LoginScreen extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      email : '', 
+      emailError : '',
+      password : '',
+      passwordError : ''
+    };
+    this.handleEmailChange = this.handleEmailChange.bind(this)
+    this.handlePasswordChange = this.handlePasswordChange.bind(this)
+  }
+
   componentDidMount() {
     this._loadInitialPageData()
   }
 
+  handleEmailChange(text) {
+    this.state = {
+      email : text
+    };
+  }
+
+  handlePasswordChange(text) {
+    this.state = {
+      password : text
+    };
+  }
+
+  _onLoginPressed = () => {
+     
+    const emailError = emailValidator(this.state.email);
+    const passwordError = passwordValidator(this.state.password);
+
+    if (emailError || passwordError) {
+      this.setState({
+        emailError : emailError , 
+        passwordError : passwordError 
+      });
+      return;
+    }
+
+    this.props.navigation.navigate('Dashboard');
+  };
+
   render() {
     return (
     <Background>
-      <BackButton goBack={() => navigation.navigate('HomeScreen')} />
+      <BackButton goBack={() => this.props.navigation.navigate('HomeScreen')} />
 
       <Logo />
 
       <Header>Welcome back.</Header>
 
       <TextInput
-        label="Email"
         returnKeyType="next"
-        value={email.value}
-        onChangeText={text => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
+        onChangeText={this.handleEmailChange}
+        error={!!this.state.emailError}
+        errorText={this.state.emailError}
         autoCapitalize="none"
         autoCompleteType="email"
         textContentType="emailAddress"
@@ -45,31 +83,29 @@ class LoginScreen extends React.Component {
       />
 
       <TextInput
-        label="Password"
         returnKeyType="done"
-        value={password.value}
-        onChangeText={text => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
+        onChangeText={this.handlePasswordChange}
+        error={!!this.state.passwordError}
+        errorText={this.state.passwordError}
         secureTextEntry
       />
 
-      <View style={styles.forgotPassword}>
+      <View style={Style.forgotPassword}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('ForgotPasswordScreen')}
+          onPress={() => this.props.navigation.navigate('ForgotPasswordScreen')}
         >
-          <Text style={styles.label}>Forgot your password?</Text>
+          <Text style={Style.label}>Forgot your password?</Text>
         </TouchableOpacity>
       </View>
 
-      <Button mode="contained" onPress={_onLoginPressed}>
+      <Button mode="contained" onPress={this._onLoginPressed}>
         Login
       </Button>
 
-      <View style={styles.row}>
-        <Text style={styles.label}>Don’t have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
-          <Text style={styles.link}>Sign up</Text>
+      <View style={Style.row}>
+        <Text style={Style.label}>Don’t have an account? </Text>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('RegisterScreen')}>
+          <Text style={Style.link}>Sign up</Text>
         </TouchableOpacity>
       </View>
     </Background>
