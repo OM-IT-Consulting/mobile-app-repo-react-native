@@ -2,16 +2,16 @@ import React from 'react'
 import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import SampleActions from 'App/Stores/Sample/Actions'
-import Style from './SampleScreenStyle'
+import DashBoardActions from 'App/Stores/DashBoard/Actions'
+import Style from './DashBoardScreenStyle'
 import Background from '../../Components/Background';
 import Logo from '../../Components/Logo';
 import Header from '../../Components/Header';
 
 /**
- * This screen displays the sample page of the mobile app.
+ * This screen displays the DashBoard page of the mobile app.
  */
-class SampleScreen extends React.Component {
+class DashBoardScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -20,7 +20,7 @@ class SampleScreen extends React.Component {
   }
 
   componentDidMount() {
-    this._loadInitialPageData()
+    this._loadDashBoardInitialPageData()
   }
 
   render() {
@@ -36,16 +36,16 @@ class SampleScreen extends React.Component {
     )
   }
   
-  _loadInitialPageData() {
-    this.props.loadInitialPageData()
+  _loadDashBoardInitialPageData() {
+    this.props.loadDashBoardInitialPageData()
   }
 }
 
-SampleScreen.propTypes = {
+DashBoardScreen.propTypes = {
   initialData: PropTypes.object,
   initialDataIsLoading: PropTypes.bool,
   initialDataErrorMessage: PropTypes.string,
-  loadInitialPageData: PropTypes.func
+  loadDashBoardInitialPageData: PropTypes.func
 }
 
 const mapStateToProps = (state) => ({
@@ -55,10 +55,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-   loadInitialPageData: () => dispatch(SampleActions.loadSampleInitialPageData()),
+  loadDashBoardInitialPageData: () => dispatch(DashBoardActions.loadDashBoardInitialPageData()),
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SampleScreen)
+)(DashBoardScreen)

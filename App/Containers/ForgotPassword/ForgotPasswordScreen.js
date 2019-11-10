@@ -2,16 +2,16 @@ import React from 'react'
 import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import SampleActions from 'App/Stores/Sample/Actions'
-import Style from './SampleScreenStyle'
+import ForgotPasswordActions from 'App/Stores/ForgotPassword/Actions'
+import Style from './ForgotPasswordScreenStyle'
 import Background from '../../Components/Background';
 import Logo from '../../Components/Logo';
 import Header from '../../Components/Header';
 
 /**
- * This screen displays the sample page of the mobile app.
+ * This screen displays the forgot password page of the mobile app.
  */
-class SampleScreen extends React.Component {
+class ForgotPasswordScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -41,7 +41,7 @@ class SampleScreen extends React.Component {
   }
 }
 
-SampleScreen.propTypes = {
+ForgotPasswordScreen.propTypes = {
   initialData: PropTypes.object,
   initialDataIsLoading: PropTypes.bool,
   initialDataErrorMessage: PropTypes.string,
@@ -55,10 +55,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-   loadInitialPageData: () => dispatch(SampleActions.loadSampleInitialPageData()),
+   loadInitialPageData: () => dispatch(ForgotPasswordActions.loadForgotPasswordInitialPageData()),
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SampleScreen)
+)(ForgotPasswordScreen)

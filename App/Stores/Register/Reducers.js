@@ -6,9 +6,9 @@
 
 import { INITIAL_STATE } from './InitialState'
 import { createReducer } from 'reduxsauce'
-import { SampleTypes } from './Actions'
+import { RegisterTypes } from './Actions'
 
-export const loadSampleInitialPageData = (state) => ({
+export const loadRegisterInitialPageData = (state) => ({
   ...state,
   initialDataIsLoading: false,
   initialDataErrorMessage: null,
@@ -32,7 +32,7 @@ export const loadInitialDataFailure = (state, { errorMessage }) => ({
  * @see https://github.com/infinitered/reduxsauce#createreducer
  */
 export const reducer = createReducer(INITIAL_STATE, {
-  [SampleTypes.LOAD_SAMPLE_INITIAL_PAGE_DATA]: loadSampleInitialPageData,
-  [SampleTypes.LOAD_INITIAL_DATA_SUCCESS]: loadInitialDataSuccess,
-  [SampleTypes.LOAD_INITIAL_DATA_FAILURE]: loadInitialDataFailure,
+  [RegisterTypes.LOAD_REGISTER_INITIAL_PAGE_DATA]: loadRegisterInitialPageData,
+  [RegisterTypes.LOAD_INITIAL_DATA_SUCCESS]: loadInitialDataSuccess,
+  [RegisterTypes.LOAD_INITIAL_DATA_FAILURE]: loadInitialDataFailure,
 })

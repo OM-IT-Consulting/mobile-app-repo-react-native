@@ -20,7 +20,7 @@ import { createActions } from 'reduxsauce'
  */
 const { Types, Creators } = createActions({
   // Fetch user informations
-  loadSampleInitialPageData: null,
+  loadDashBoardInitialPageData: null,
   // The operation has started and is loading
   initialDataIsLoading: null,
   // User informations were successfully fetched
@@ -29,5 +29,5 @@ const { Types, Creators } = createActions({
   loadInitialDataFailure: ['errorMessage'],
 })
 
-export const SampleTypes = Types
+export const DashBoardTypes = Types
 export default Creators

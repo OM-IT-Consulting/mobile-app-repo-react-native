@@ -2,16 +2,16 @@ import React from 'react'
 import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import SampleActions from 'App/Stores/Sample/Actions'
-import Style from './SampleScreenStyle'
+import RegisterActions from 'App/Stores/Register/Actions'
+import Style from './RegisterScreenStyle'
 import Background from '../../Components/Background';
 import Logo from '../../Components/Logo';
 import Header from '../../Components/Header';
 
 /**
- * This screen displays the sample page of the mobile app.
+ * This screen displays the Register page of the mobile app.
  */
-class SampleScreen extends React.Component {
+class RegisterScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -41,7 +41,7 @@ class SampleScreen extends React.Component {
   }
 }
 
-SampleScreen.propTypes = {
+RegisterScreen.propTypes = {
   initialData: PropTypes.object,
   initialDataIsLoading: PropTypes.bool,
   initialDataErrorMessage: PropTypes.string,
@@ -55,10 +55,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-   loadInitialPageData: () => dispatch(SampleActions.loadSampleInitialPageData()),
+   loadInitialPageData: () => dispatch(RegisterActions.loadRegisterInitialPageData()),
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SampleScreen)
+)(RegisterScreen)

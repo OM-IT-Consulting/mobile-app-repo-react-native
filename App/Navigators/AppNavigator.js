@@ -4,6 +4,9 @@ import ExampleScreen from 'App/Containers/Example/ExampleScreen'
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen'
 import LoginScreen from 'App/Containers/Login/LoginScreen'
 import SampleScreen from 'App/Containers/Sample/SampleScreen'
+import ForgotPasswordScreen from 'App/Containers/ForgotPassword/ForgotPasswordScreen'
+import RegisterScreen from 'App/Containers/Register/RegisterScreen'
+import DashBoardScreen from 'App/Containers/DashBoard/DashBoardScreen'
 
 /**
  * The root screen contains the application's navigation.
@@ -20,6 +23,12 @@ const StackNavigator = createStackNavigator(
     MainScreen: LoginScreen,
     //SampleScreen with initial data. Acts as a template to create new screens
     SampleScreen: SampleScreen,
+    //ForgotPasswordScreen with initial data. For forgot password
+    ForgotPasswordScreen: ForgotPasswordScreen,
+    //RegisterScreen with initial data. For new user registration
+    RegisterScreen: RegisterScreen,
+    //DashBoardScreen with initial data. For dashboard loading
+    DashBoardScreen: DashBoardScreen,
   },
   {
     // By default the application will show the splash screen
