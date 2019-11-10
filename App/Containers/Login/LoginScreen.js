@@ -26,8 +26,8 @@ class LoginScreen extends React.Component {
       password : '',
       passwordError : ''
     };
-    this.handleEmailChange = this.handleEmailChange.bind(this)
-    this.handlePasswordChange = this.handlePasswordChange.bind(this)
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
 
   componentDidMount() {
@@ -35,22 +35,20 @@ class LoginScreen extends React.Component {
   }
 
   handleEmailChange(text) {
-    this.state = {
-      email : text
-    };
+    this.setState({
+      email: text
+    });
   }
 
   handlePasswordChange(text) {
-    this.state = {
-      password : text
-    };
+    this.setState({
+      password: text
+    });
   }
 
   _onLoginPressed = () => {
-     
     const emailError = emailValidator(this.state.email);
     const passwordError = passwordValidator(this.state.password);
-
     if (emailError || passwordError) {
       this.setState({
         emailError : emailError , 
@@ -58,8 +56,7 @@ class LoginScreen extends React.Component {
       });
       return;
     }
-
-    this.props.navigation.navigate('Dashboard');
+    this.props.navigation.navigate('DashBoardScreen');
   };
 
   render() {
@@ -69,10 +66,11 @@ class LoginScreen extends React.Component {
 
       <Logo />
 
-      <Header>Welcome back.</Header>
+      <Header>Welcome to Red Cross.</Header>
 
       <TextInput
         returnKeyType="next"
+        value={this.state.email}
         onChangeText={this.handleEmailChange}
         error={!!this.state.emailError}
         errorText={this.state.emailError}
