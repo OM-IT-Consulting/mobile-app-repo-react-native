@@ -68,6 +68,7 @@ class LoginScreen extends React.Component {
 
       <Header>Welcome to Red Cross.</Header>
 
+      <Text style={Style.label}>Email Id</Text>
       <TextInput
         returnKeyType="next"
         value={this.state.email}
@@ -80,6 +81,7 @@ class LoginScreen extends React.Component {
         keyboardType="email-address"
       />
 
+      <Text style={Style.label}>Password</Text>
       <TextInput
         returnKeyType="done"
         onChangeText={this.handlePasswordChange}
