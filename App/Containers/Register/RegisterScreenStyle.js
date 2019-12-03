@@ -7,9 +7,9 @@ import ApplicationStyles from 'App/Theme/ApplicationStyles'
 export default StyleSheet.create({
   container: {
     ...ApplicationStyles.screen.container,
-    margin: 30,
+    margin: 60,
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   title: {
     ...Fonts.style.h2,
@@ -20,8 +20,9 @@ export default StyleSheet.create({
     ...Fonts.style.normal,
     textAlign: 'left',
     marginBottom: 5,
-    height: 50, 
-    width: '50%'
+    height: 110, 
+    width: 300 ,
+    color: 'blue'
   },
   text: {
     ...Fonts.style.normal,

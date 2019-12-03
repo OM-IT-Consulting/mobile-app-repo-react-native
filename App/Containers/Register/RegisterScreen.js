@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View,Picker, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
+import { Text, View,Picker, ScrollView, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import RegisterActions from 'App/Stores/Register/Actions'
@@ -10,6 +10,7 @@ import Header from '../../Components/Header';
 import Button from '../../Components/Button';
 import TextInput from '../../Components/TextInput';
 import { nameValidator,genderValidator,dobValidator,emailValidator,bloodGroupValidator,frequentDonorValidator,countryValidator,stateValidator,districtValidator,talukValidator,placeValidator,areaValidator,addressValidator,pinCodeValidator } from '../../Core/utils';
+import Colors from 'App/Theme/Colors'
 
 /**
  * This screen displays the Register page of the mobile app.
@@ -149,7 +150,7 @@ class RegisterScreen extends React.Component {
   }
   
   _onRegisterPressed = () => {
-    this.props.navigation.navigate('LoginScreen');
+    this.props.navigation.navigate('MainScreen');
   };
 
   componentDidMount() {
@@ -159,7 +160,8 @@ class RegisterScreen extends React.Component {
   render() {
     return (
       <Background>
-  
+      <View style={{padding: 10, flex: 3}}>
+      <ScrollView style={{flex: 3}}>
         <Header>Registration Screen</Header>
 
         <Text style={Style.label}>Name *</Text>
@@ -179,7 +181,9 @@ class RegisterScreen extends React.Component {
       <Picker
         selectedValue={this.state.gender}
         style={Style.selectBox}
-        onValueChange={this.handleGenderChange}>
+        onValueChange={this.handleGenderChange}
+        itemStyle={{ backgroundColor: "grey", color: "blue", fontFamily:"Ebrima", fontSize:17 }}
+        >
         <Picker.Item label="Male" value="male" />
         <Picker.Item label="Female" value="female" />
       </Picker>
@@ -233,8 +237,8 @@ class RegisterScreen extends React.Component {
         selectedValue={this.state.country}
         style={Style.selectBox}
         onValueChange={this.handleCountryChange}>
-        <Picker.Item label="in" value="India" />
-        <Picker.Item label="sg" value="Singapore" />
+        <Picker.Item value="in" label="India" />
+        <Picker.Item value="sg" label="Singapore" />
       </Picker>
 
       <Text style={Style.label}>State *</Text>
@@ -242,8 +246,8 @@ class RegisterScreen extends React.Component {
         selectedValue={this.state.state}
         style={Style.selectBox}
         onValueChange={this.handleStateChange}>
-        <Picker.Item label="tn" value="Tamil Nadu" />
-        <Picker.Item label="kl" value="Kerala" />
+        <Picker.Item value="tn" label="Tamil Nadu" />
+        <Picker.Item value="kl" label="Kerala" />
       </Picker>
 
       <Text style={Style.label}>District *</Text>
@@ -251,8 +255,8 @@ class RegisterScreen extends React.Component {
         selectedValue={this.state.district}
         style={Style.selectBox}
         onValueChange={this.handleDistrictChange}>
-        <Picker.Item label="cp" value="ChengalPattu" />
-        <Picker.Item label="th" value="Thiruvallur" />
+        <Picker.Item value="cp" label="ChengalPattu" />
+        <Picker.Item value="th" label="Thiruvallur" />
       </Picker>
 
       <Text style={Style.label}>Taluk *</Text>
@@ -260,8 +264,8 @@ class RegisterScreen extends React.Component {
         selectedValue={this.state.taluk}
         style={Style.selectBox}
         onValueChange={this.handleTalukChange}>
-        <Picker.Item label="t1" value="Taluk1" />
-        <Picker.Item label="t2" value="Taluk2" />
+        <Picker.Item value="t1" label="Taluk1" />
+        <Picker.Item value="t2" label="Taluk2" />
       </Picker>
 
       <Text style={Style.label}>Place *</Text>
@@ -269,8 +273,8 @@ class RegisterScreen extends React.Component {
         selectedValue={this.state.place}
         style={Style.selectBox}
         onValueChange={this.handlePlaceChange}>
-        <Picker.Item label="place1" value="Place1" />
-        <Picker.Item label="place2" value="Place2" />
+        <Picker.Item value="place1" label="Place1" />
+        <Picker.Item value="place2" label="Place2" />
       </Picker>
 
       <Text style={Style.label}>Area *</Text>
@@ -278,8 +282,8 @@ class RegisterScreen extends React.Component {
         selectedValue={this.state.area}
         style={Style.selectBox}
         onValueChange={this.handleAreaChange}>
-        <Picker.Item label="area1" value="Area1" />
-        <Picker.Item label="area2" value="Area2" />
+        <Picker.Item value="area1" label="Area1" />
+        <Picker.Item value="area2" label="Area2" />
       </Picker>
 
       <Text style={Style.label}>Address*</Text>
@@ -312,6 +316,8 @@ class RegisterScreen extends React.Component {
         Register
       </Button>
 
+      </ScrollView>
+      </View>
       </Background>
     )
   }
