@@ -25,9 +25,8 @@ export default StyleSheet.create({
     color: 'blue'
   },
   text: {
-    ...Fonts.style.normal,
-    textAlign: 'center',
-    marginBottom: 5,
+    ...Fonts.style.h2,
+    textAlign: 'center'
   },
   instructions: {
     ...Fonts.style.normal,
