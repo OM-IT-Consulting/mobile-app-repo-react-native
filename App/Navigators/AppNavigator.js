@@ -7,6 +7,10 @@ import SampleScreen from 'App/Containers/Sample/SampleScreen'
 import ForgotPasswordScreen from 'App/Containers/ForgotPassword/ForgotPasswordScreen'
 import RegisterScreen from 'App/Containers/Register/RegisterScreen'
 import DashBoardScreen from 'App/Containers/DashBoard/DashBoardScreen'
+import DonorListScreen from 'App/Containers/DonorList/DonorListScreen'
+import AdminListScreen from 'App/Containers/AdminList/AdminListScreen'
+import AdminDonorShareScreen from 'App/Containers/AdminDonorShare/AdminDonorShareScreen'
+import ForgotPasswordOTPScreen from 'App/Containers/ForgotPasswordOTP/ForgotPasswordOTPScreen'
 
 /**
  * The root screen contains the application's navigation.
@@ -23,12 +27,20 @@ const StackNavigator = createStackNavigator(
     MainScreen: LoginScreen,
     //SampleScreen with initial data. Acts as a template to create new screens
     SampleScreen: SampleScreen,
+    //InitialPage for ForgotPassword
+    ForgotPasswordOTPScreen: ForgotPasswordOTPScreen,
     //ForgotPasswordScreen with initial data. For forgot password
     ForgotPasswordScreen: ForgotPasswordScreen,
     //RegisterScreen with initial data. For new user registration
     RegisterScreen: RegisterScreen,
     //DashBoardScreen with initial data. For dashboard loading
     DashBoardScreen: DashBoardScreen,
+    // HomePage for the donors
+    DonorListScreen: DonorListScreen,
+    // HomePage for the admin
+    AdminListScreen: AdminListScreen,
+    // Screen to Share the details to donor for admin
+    AdminDonorShareScreen: AdminDonorShareScreen
   },
   {
     // By default the application will show the splash screen

@@ -54,7 +54,7 @@ class LoginScreen extends React.Component {
         emailError : emailError , 
         passwordError : passwordError 
       });
-      return;
+      //return;
     }
     this.props.navigation.navigate('DashBoardScreen');
   };

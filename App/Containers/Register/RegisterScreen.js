@@ -1,15 +1,10 @@
 import React from 'react'
-import { View,ScrollView, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import RegisterActions from 'App/Stores/Register/Actions'
 import Style from './RegisterScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import TextInput from '../../Components/TextInput';
 import { nameValidator,genderValidator,dobValidator,emailValidator,bloodGroupValidator,frequentDonorValidator,countryValidator,stateValidator,districtValidator,talukValidator,placeValidator,areaValidator,addressValidator,pinCodeValidator } from '../../Core/utils';
 import { Container, Header, Content, Form, Item, Input, Left, Body, Right, Title,Icon, Label,Text,Button,Picker } from 'native-base';
-import { Col, Row, Grid } from 'react-native-easy-grid';
 
 /**
  * This screen displays the Register page of the mobile app.

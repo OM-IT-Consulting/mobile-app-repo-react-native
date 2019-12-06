@@ -1,12 +1,9 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import DashBoardActions from 'App/Stores/DashBoard/Actions'
 import Style from './DashBoardScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
 
 /**
  * This screen displays the DashBoard page of the mobile app.
@@ -25,14 +22,30 @@ class DashBoardScreen extends React.Component {
 
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+          <Container>
+          <Header>
+            <Left>
+              <Button transparent>
+                <Icon name='menu' />
+              </Button>
+            </Left>
+            <Body>
+              <Title>Welcome to Red Cross</Title>
+            </Body>
+          </Header>
+          <Content>
+            <Text>
+              This is Content Section
+            </Text>
+          </Content>
+          <Footer>
+            <FooterTab>
+              <Button full onPress={this._onLogoutPressed}>
+                <Text > Logout </Text>
+              </Button>
+            </FooterTab>
+          </Footer>
+        </Container>
     )
   }
   
