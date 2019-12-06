@@ -25,7 +25,9 @@ class DashBoardScreen extends React.Component {
           <Container>
           <Header>
             <Left>
-              <Button transparent>
+              <Button
+              transparent
+              onPress={() => this.props.navigation.openDrawer()}>
                 <Icon name='menu' />
               </Button>
             </Left>
