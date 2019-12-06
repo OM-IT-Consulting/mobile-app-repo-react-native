@@ -20,7 +20,7 @@ export default StyleSheet.create({
     ...Fonts.style.normal,
     textAlign: 'left',
     marginBottom: 5,
-    height: 110, 
+    height: 60, 
     width: 300 ,
     color: 'blue'
   },
