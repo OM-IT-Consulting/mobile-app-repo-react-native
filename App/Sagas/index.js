@@ -21,6 +21,9 @@ import { loadDonorListInitialPageData } from './DonorListSaga'
 import { loadAdminListInitialPageData } from './AdminListSaga'
 import { loadAdminDonorShareInitialPageData } from './AdminDonorShareSaga'
 import { loadForgotPasswordOTPInitialPageData } from './ForgotPasswordOTPSaga'
+import { loadLogoutInitialPageData } from './LogoutSaga'
+import { loadRecipientDonorListInitialPageData } from './RecipientDonorListSaga'
+import { loadRecipientDonorListResultInitialPageData } from './RecipientDonorListResultSaga'
 
 export default function* root() {
   yield all([
@@ -48,6 +51,12 @@ export default function* root() {
     // Call `loadAdminDonorShareInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
     takeEvery(AdminDonorShareTypes.LOAD_ADMIN_DONOR_SHARE_INITIAL_PAGE_DATA, loadAdminDonorShareInitialPageData),
     // Call `loadForgotPasswordOTPInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
-    takeEvery(ForgotPasswordOTPTypes.LOAD_FORGOT_PASSWORD_OTP_INITIAL_PAGE_DATA, loadForgotPasswordOTPInitialPageData)
+    takeEvery(ForgotPasswordOTPTypes.LOAD_FORGOT_PASSWORD_OTP_INITIAL_PAGE_DATA, loadForgotPasswordOTPInitialPageData),
+    // Call `loadLogoutInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(LogoutTypes.LOAD_LOGOUT_INITIAL_PAGE_DATA, loadLogoutInitialPageData),
+    // Call `loadRecipientDonorListInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(RecipientDonorListTypes.LOAD_RECIPIENT_DONOR_LIST_INITIAL_PAGE_DATA, loadRecipientDonorListInitialPageData),
+    // Call `loadRecipientDonorListResultInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(RecipientDonorListResultTypes.LOAD_RECIPIENT_DONOR_LIST_RESULT_INITIAL_PAGE_DATA, loadRecipientDonorListResultInitialPageData)
   ])
 }

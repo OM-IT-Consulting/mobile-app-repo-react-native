@@ -30,6 +30,16 @@ class DrawerScreen extends Component {
               </Text>
             </View>
             <View style={styles.menuItem}>
+              <Text onPress={this.navigateToScreen('RecipientDonorListScreen')}>
+              Recipient Donor List
+              </Text>
+            </View>
+            <View style={styles.menuItem}>
+              <Text onPress={this.navigateToScreen('RecipientDonorListResultScreen')}>
+              Recipient Donor Result List
+              </Text>
+            </View>
+            <View style={styles.menuItem}>
               <Text onPress={this.navigateToScreen('LogoutScreen')}>
               Logout
               </Text>

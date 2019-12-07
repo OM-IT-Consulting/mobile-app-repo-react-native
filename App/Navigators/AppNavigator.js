@@ -10,6 +10,11 @@ import DashBoardScreen from 'App/Containers/DashBoard/DashBoardScreen'
 import DonorListScreen from 'App/Containers/DonorList/DonorListScreen'
 import AdminListScreen from 'App/Containers/AdminList/AdminListScreen'
 import AdminDonorShareScreen from 'App/Containers/AdminDonorShare/AdminDonorShareScreen'
+import LogoutScreen from 'App/Containers/Logout/LogoutScreen'
+import RecipientDonorListScreen from 'App/Containers/RecipientDonorList/RecipientDonorListScreen'
+import RecipientDonorListResultScreen from 'App/Containers/RecipientDonorListResult/RecipientDonorListResultScreen'
+
+
 import ForgotPasswordOTPScreen from 'App/Containers/ForgotPasswordOTP/ForgotPasswordOTPScreen'
 import DrawerScreen from "../DrawerScreen/DrawerScreen";
 
@@ -41,7 +46,13 @@ const StackNavigator = createDrawerNavigator(
     // HomePage for the admin
     AdminListScreen: AdminListScreen,
     // Screen to Share the details to donor for admin
-    AdminDonorShareScreen: AdminDonorShareScreen
+    AdminDonorShareScreen: AdminDonorShareScreen,
+    //Logout Screen
+    LogoutScreen: LogoutScreen,
+    // Recipient List Screen
+    RecipientDonorListScreen: RecipientDonorListScreen,
+    // Recipient List Result Screen
+    RecipientDonorListResultScreen: RecipientDonorListResultScreen
   },
   {
     // By default the application will show the splash screen
