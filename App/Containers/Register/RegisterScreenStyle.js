@@ -22,7 +22,8 @@ export default StyleSheet.create({
     marginBottom: 5,
     height: 60, 
     width: 300 ,
-    color: 'blue'
+    color: 'black',
+    fontWeight: 'bold'
   },
   text: {
     ...Fonts.style.h2,

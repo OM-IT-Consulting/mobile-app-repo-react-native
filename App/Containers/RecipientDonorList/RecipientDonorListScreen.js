@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import RecipientDonorListActions from 'App/Stores/RecipientDonorList/Actions'
 import Style from './RecipientDonorListScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Title, Form, Item, Label, Input, Picker, Content, Button, Left, Right, Body, Icon, Text, Badge } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the RecipientDonorList page of the mobile app.
@@ -25,14 +23,30 @@ class RecipientDonorListScreen extends React.Component {
 
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+      <Container>
+      <Header>
+        <Left>
+          <Button
+          transparent
+          onPress={() => this.props.navigation.openDrawer()}>
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Search Donor</Title>
+        </Body>
+      </Header>
+      <Content>
+        <Form>
+            <Item stackedLabel>
+              <Label>Name *</Label>
+              <Input
+              />
+            </Item>
+        </Form>
+      </Content>
+      <FooterBar/>
+    </Container>
     )
   }
   

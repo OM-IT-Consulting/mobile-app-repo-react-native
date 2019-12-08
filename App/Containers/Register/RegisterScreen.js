@@ -189,10 +189,10 @@ class RegisterScreen extends React.Component {
     return (
       <Container>
         <Header>
+          <Left/>
           <Body>
-            <Title>New User Registration</Title>
+            <Title >New User Registration</Title>
           </Body>
-          <Right />
         </Header>
         <Content>
           <Form>
@@ -205,7 +205,7 @@ class RegisterScreen extends React.Component {
             </Item>
             <Text style={{ color: "red" }}>{(this.state.nameError)?this.state.nameError:""}</Text>
 
-            <Item stackedLabel>
+            <Item stackedLabel picker>
               <Label>Gender *</Label>
               <Picker
                 mode="dropdown"
@@ -368,8 +368,7 @@ class RegisterScreen extends React.Component {
               />
             </Item>
             <Text style={{ color: "red" }}>{(this.state.pinCodeError)?this.state.pinCodeError:""}</Text>
-
-            <Button primary onPress={this._onRegisterPressed}><Text> Register </Text></Button>
+            <Button large full onPress={this._onRegisterPressed}><Text> Register </Text></Button>
           </Form>
         </Content>
       </Container>

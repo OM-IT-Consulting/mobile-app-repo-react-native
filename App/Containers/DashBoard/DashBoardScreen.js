@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import DashBoardActions from 'App/Stores/DashBoard/Actions'
 import Style from './DashBoardScreenStyle'
-import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base';
-
+import { Container, Header, Title, Content, Button, Left, Right, Body, Icon, Text, Badge } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 /**
  * This screen displays the DashBoard page of the mobile app.
  */
@@ -40,13 +40,7 @@ class DashBoardScreen extends React.Component {
               This is Content Section
             </Text>
           </Content>
-          <Footer>
-            <FooterTab>
-              <Button full onPress={this._onLogoutPressed}>
-                <Text > Logout </Text>
-              </Button>
-            </FooterTab>
-          </Footer>
+          <FooterBar/>
         </Container>
     )
   }
