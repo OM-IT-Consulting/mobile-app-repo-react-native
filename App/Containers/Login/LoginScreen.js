@@ -92,7 +92,7 @@ class LoginScreen extends React.Component {
 
       <View style={Style.forgotPassword}>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('ForgotPasswordScreen')}
+          onPress={() => this.props.navigation.navigate('ForgotPasswordOTPScreen')}
         >
           <Text style={Style.label}>Forgot your password?</Text>
         </TouchableOpacity>

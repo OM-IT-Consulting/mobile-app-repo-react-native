@@ -19,8 +19,6 @@ class ForgotPasswordScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mobileNo : '', 
-      mobileNoError : '',
       otp : '',
       otpError : '',
       newPassword : '',
@@ -28,7 +26,6 @@ class ForgotPasswordScreen extends React.Component {
       confirmPassword : '',
       confirmPasswordError : ''
     };
-    this.handleMobileNoChange = this.handleMobileNoChange.bind(this);
     this.handleOTPChange = this.handleOTPChange.bind(this);
     this.handleNewPasswordChange = this.handleNewPasswordChange.bind(this);
     this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
@@ -36,12 +33,6 @@ class ForgotPasswordScreen extends React.Component {
 
   componentDidMount() {
     this._loadInitialPageData()
-  }
-
-  handleMobileNoChange(text) {
-    this.setState({
-      mobileNo: text
-    });
   }
 
   handleOTPChange(text) {
@@ -63,13 +54,11 @@ class ForgotPasswordScreen extends React.Component {
   }
 
   _onResetPressed = () => {
-    const mobileNoError = mobileNoValidator(this.state.mobileNo);
     const otpError = otpValidator(this.state.otp);
     const newPasswordError = newPasswordValidator(this.state.newPassword);
     const confirmPasswordError = confirmPasswordValidator(this.state.confirmPassword);
-    if (mobileNoError || otpError || newPasswordError || confirmPasswordError) {
+    if (otpError || newPasswordError || confirmPasswordError) {
       this.setState({
-        mobileNoError : mobileNoError , 
         otpError : otpError , 
         newPasswordError : newPasswordError , 
         confirmPasswordError : confirmPasswordError 
@@ -84,19 +73,6 @@ class ForgotPasswordScreen extends React.Component {
         <Background>
   
         <Header>Forgot Password</Header>
-
-       <Text style={Style.label}>Enter Mobile No</Text>
-       <TextInput
-        returnKeyType="next"
-        value={this.state.mobileNo}
-        onChangeText={this.handleMobileNoChange}
-        error={!!this.state.mobileNoError}
-        errorText={this.state.mobileNoError}
-        autoCapitalize="none"
-        autoCompleteType="tel"
-        textContentType="telephoneNumber"
-        keyboardType="phone-pad"
-      />
   
       <Text style={Style.label}>Enter OTP</Text>
       <TextInput

@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import RecipientDonorListResultActions from 'App/Stores/RecipientDonorListResult/Actions'
 import Style from './RecipientDonorListResultScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Title, Form, Item, Label, Input, Picker, Content, Button, Left, Right, Body, Icon, Text, Badge } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the RecipientDonorListResult page of the mobile app.
@@ -19,20 +17,41 @@ class RecipientDonorListResultScreen extends React.Component {
     };
   }
 
+  _onAgainSearchPressed = () => {
+    this.props.navigation.navigate('RecipientDonorListScreen');
+  };
+
   componentDidMount() {
     this._loadInitialPageData()
   }
 
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+      <Container>
+      <Header>
+        <Left>
+          <Button
+          transparent
+          onPress={() => this.props.navigation.openDrawer()}>
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Donor List</Title>
+        </Body>
+      </Header>
+      <Content>
+        <Form>
+            <Item stackedLabel>
+              <Label>Name *</Label>
+              <Input
+              />
+            </Item>
+            <Button medium full onPress={this._onAgainSearchPressed}><Text> Search Donor </Text></Button>
+        </Form>
+      </Content>
+      <FooterBar navigation={this.props.navigation}/>
+    </Container>
     )
   }
   

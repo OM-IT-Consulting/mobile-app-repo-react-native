@@ -7,6 +7,10 @@ class FooterBar extends React.Component {
       super(props);
     }
 
+    _onLogoutPressed = () => {
+      this.props.navigation.navigate('MainScreen');
+    };
+
     render() {
         return (
           <Footer>
@@ -24,7 +28,7 @@ class FooterBar extends React.Component {
               <Icon name="person" />
               <Text>Contact</Text>
             </Button>
-            <Button vertical>
+            <Button vertical onPress={this._onLogoutPressed}>
               <Icon name="log-out" />
               <Text>Logout</Text>
             </Button>

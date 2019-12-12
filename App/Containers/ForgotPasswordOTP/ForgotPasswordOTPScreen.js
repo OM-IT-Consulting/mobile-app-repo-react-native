@@ -7,6 +7,9 @@ import Style from './ForgotPasswordOTPScreenStyle'
 import Background from '../../Components/Background';
 import Logo from '../../Components/Logo';
 import Header from '../../Components/Header';
+import TextInput from '../../Components/TextInput';
+import Button from '../../Components/Button';
+import { mobileNoValidator } from '../../Core/utils';
 
 /**
  * This screen displays the ForgotPasswordOTP page of the mobile app.
@@ -16,22 +19,56 @@ class ForgotPasswordOTPScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      mobileNo : '', 
+      mobileNoError : ''
     };
+    this.handleMobileNoChange = this.handleMobileNoChange.bind(this);
+  }
+
+  handleMobileNoChange(text) {
+    this.setState({
+      mobileNo: text
+    });
   }
 
   componentDidMount() {
     this._loadInitialPageData()
   }
 
+  _onSendOTPPressed = () => {
+    const mobileNoError = mobileNoValidator(this.state.mobileNo);
+    if (mobileNoError) {
+      this.setState({
+        mobileNoError : mobileNoError
+      });
+      return;
+    }
+    this.props.navigation.navigate('ForgotPasswordScreen');
+  };
+
   render() {
     return (
-        <Background>
+      <Background>
   
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
+      <Header>Forgot Password</Header>
+
+        <Text style={Style.label}>Please Enter mobile no to send OTP</Text>
+        <TextInput
+          returnKeyType="next"
+          value={this.state.mobileNo}
+          onChangeText={this.handleMobileNoChange}
+          error={!!this.state.mobileNoError}
+          errorText={this.state.mobileNoError}
+          autoCapitalize="none"
+          autoCompleteType="tel"
+          textContentType="telephoneNumber"
+          keyboardType="phone-pad"
+        />
+        
+        <Button mode="contained" onPress={this._onSendOTPPressed}>
+          Send OTP
+        </Button>
+
       </Background>
     )
   }

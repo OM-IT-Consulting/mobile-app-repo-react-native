@@ -17,6 +17,10 @@ class RecipientDonorListScreen extends React.Component {
     };
   }
 
+  _onSearchPressed = () => {
+    this.props.navigation.navigate('RecipientDonorListResultScreen');
+  };
+
   componentDidMount() {
     this._loadInitialPageData()
   }
@@ -43,9 +47,10 @@ class RecipientDonorListScreen extends React.Component {
               <Input
               />
             </Item>
+            <Button medium full onPress={this._onSearchPressed}><Text> Search Donor </Text></Button>
         </Form>
       </Content>
-      <FooterBar/>
+      <FooterBar navigation={this.props.navigation}/>
     </Container>
     )
   }

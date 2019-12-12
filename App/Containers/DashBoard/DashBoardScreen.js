@@ -40,7 +40,7 @@ class DashBoardScreen extends React.Component {
               This is Content Section
             </Text>
           </Content>
-          <FooterBar/>
+          <FooterBar navigation={this.props.navigation}/>
         </Container>
     )
   }
