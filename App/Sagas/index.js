@@ -13,6 +13,14 @@ import { RecipientDonorListTypes } from 'App/Stores/RecipientDonorList/Actions'
 import { RecipientDonorListResultTypes } from 'App/Stores/RecipientDonorListResult/Actions'
 import { AdminDonorShareTypes } from 'App/Stores/AdminDonorShare/Actions'
 import { ForgotPasswordOTPTypes } from 'App/Stores/ForgotPasswordOTP/Actions'
+import { ForgotPasswordResultTypes } from 'App/Stores/ForgotPasswordResult/Actions'
+import { RegisterScreenOTPTypes } from 'App/Stores/RegisterScreenOTP/Actions'
+import { RegisterScreenResultTypes } from 'App/Stores/RegisterScreenResult/Actions'
+import { RecipientDonorListDetailsTypes } from 'App/Stores/RecipientDonorListDetails/Actions'
+import { DonorListDetailsTypes } from 'App/Stores/DonorListDetails/Actions'
+import { AdminListSendResponseTypes } from 'App/Stores/AdminListSendResponse/Actions'
+import { AdminReportTypes } from 'App/Stores/AdminReport/Actions'
+import { AdminReportDetailsTypes } from 'App/Stores/AdminReportDetails/Actions'
 import { fetchUser } from './ExampleSaga'
 import { startup } from './StartupSaga'
 import { loadInitialPageData } from './LoginSaga'
@@ -27,6 +35,14 @@ import { loadForgotPasswordOTPInitialPageData } from './ForgotPasswordOTPSaga'
 import { loadLogoutInitialPageData } from './LogoutSaga'
 import { loadRecipientDonorListInitialPageData } from './RecipientDonorListSaga'
 import { loadRecipientDonorListResultInitialPageData } from './RecipientDonorListResultSaga'
+import { loadForgotPasswordResultInitialPageData } from './ForgotPasswordResultSaga'
+import { loadRegisterScreenOTPInitialPageData } from './RegisterScreenOTPSaga'
+import { loadRegisterScreenResultInitialPageData } from './RegisterScreenResultSaga'
+import { loadRecipientDonorListDetailsInitialPageData } from './RecipientDonorListDetailsSaga'
+import { loadDonorListDetailsInitialPageData } from './DonorListDetailsSaga'
+import { loadAdminListSendResponseInitialPageData } from './AdminListSendResponseSaga'
+import { loadAdminReportInitialPageData } from './AdminReportSaga'
+import { loadAdminReportDetailsInitialPageData } from './AdminReportDetailsSaga'
 
 export default function* root() {
   yield all([
@@ -60,6 +76,22 @@ export default function* root() {
     // Call `loadRecipientDonorListInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
     takeEvery(RecipientDonorListTypes.LOAD_RECIPIENT_DONOR_LIST_INITIAL_PAGE_DATA, loadRecipientDonorListInitialPageData),
     // Call `loadRecipientDonorListResultInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
-    takeEvery(RecipientDonorListResultTypes.LOAD_RECIPIENT_DONOR_LIST_RESULT_INITIAL_PAGE_DATA, loadRecipientDonorListResultInitialPageData)
+    takeEvery(RecipientDonorListResultTypes.LOAD_RECIPIENT_DONOR_LIST_RESULT_INITIAL_PAGE_DATA, loadRecipientDonorListResultInitialPageData),
+    // Call `loadForgotPasswordResultResultInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(ForgotPasswordResultTypes.LOAD_FORGOT_PASSWORD_RESULT_INITIAL_PAGE_DATA, loadForgotPasswordResultInitialPageData),
+    // Call `loadRegisterScreenOTPInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(RegisterScreenOTPTypes.LOAD_REGISTERSCREEN_OTP_INITIAL_PAGE_DATA, loadRegisterScreenOTPInitialPageData),
+    // Call `loadRegisterScreenResultInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(RegisterScreenResultTypes.LOAD_REGISTER_SCREEN_RESULT_INITIAL_PAGE_DATA, loadRegisterScreenResultInitialPageData),
+    // Call `loadRecipientDonorListDetailsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(RecipientDonorListDetailsTypes.LOAD_RECIPIENT_DONOR_LIST_DETAILS_INITIAL_PAGE_DATA, loadRecipientDonorListDetailsInitialPageData),
+    // Call `loadDonorListDetailsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(DonorListDetailsTypes.LOAD_DONOR_LIST_DETAILS_INITIAL_PAGE_DATA, loadDonorListDetailsInitialPageData),
+    // Call `loadAdminListSendResponseInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(AdminListSendResponseTypes.LOAD_ADMIN_LIST_SEND_RESPONSE_INITIAL_PAGE_DATA, loadAdminListSendResponseInitialPageData),
+    // Call `loadAdminReportInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(AdminReportTypes.LOAD_ADMIN_REPORT_INITIAL_PAGE_DATA, loadRecipientDonorListResultInitialPageData),
+    // Call `loadAdminReportDetailsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeEvery(AdminReportDetailsTypes.LOAD_ADMIN_REPORT_DETAILS_INITIAL_PAGE_DATA, loadAdminReportDetailsInitialPageData)
   ])
 }

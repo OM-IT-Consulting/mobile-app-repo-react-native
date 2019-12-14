@@ -13,8 +13,14 @@ import AdminDonorShareScreen from 'App/Containers/AdminDonorShare/AdminDonorShar
 import LogoutScreen from 'App/Containers/Logout/LogoutScreen'
 import RecipientDonorListScreen from 'App/Containers/RecipientDonorList/RecipientDonorListScreen'
 import RecipientDonorListResultScreen from 'App/Containers/RecipientDonorListResult/RecipientDonorListResultScreen'
-
-
+import ForgotPasswordResultScreen from 'App/Containers/ForgotPasswordResult/ForgotPasswordResultScreen'
+import RegisterScreenOTPScreen from 'App/Containers/RegisterScreenOTP/RegisterScreenOTPScreen'
+import RegisterScreenResultScreen from 'App/Containers/RegisterScreenResult/RegisterScreenResultScreen'
+import RecipientDonorListDetailsScreen from 'App/Containers/RecipientDonorListDetails/RecipientDonorListDetailsScreen'
+import DonorListDetailsScreen from 'App/Containers/DonorListDetails/DonorListDetailsScreen'
+import AdminListSendResponseScreen from 'App/Containers/AdminListSendResponse/AdminListSendResponseScreen'
+import AdminReportScreen from 'App/Containers/AdminReport/AdminReportScreen'
+import AdminReportDetailsScreen from 'App/Containers/AdminReportDetails/AdminReportDetailsScreen'
 import ForgotPasswordOTPScreen from 'App/Containers/ForgotPasswordOTP/ForgotPasswordOTPScreen'
 import DrawerScreen from "../DrawerScreen/DrawerScreen";
 
@@ -37,22 +43,36 @@ const StackNavigator = createDrawerNavigator(
     ForgotPasswordOTPScreen: ForgotPasswordOTPScreen,
     //ForgotPasswordScreen with initial data. For forgot password
     ForgotPasswordScreen: ForgotPasswordScreen,
+    //ForgotPassword Result Screen
+    ForgotPasswordResultScreen: ForgotPasswordResultScreen,
     //RegisterScreen with initial data. For new user registration
     RegisterScreen: RegisterScreen,
+    // New User Registration OTP Screen
+    RegisterScreenOTPScreen: RegisterScreenOTPScreen,
+    // New User Registration Result Screen
+    RegisterScreenResultScreen: RegisterScreenResultScreen,
     //DashBoardScreen with initial data. For dashboard loading
     DashBoardScreen: DashBoardScreen,
     // HomePage for the donors
     DonorListScreen: DonorListScreen,
+    // DonorList Details Screen
+    DonorListDetailsScreen: DonorListDetailsScreen,
     // HomePage for the admin
     AdminListScreen: AdminListScreen,
     // Screen to Share the details to donor for admin
     AdminDonorShareScreen: AdminDonorShareScreen,
+    // Report Screen for Admin
+    AdminReportScreen: AdminReportScreen,
+    //Admin Report Details Screen
+    AdminReportDetailsScreen: AdminReportDetailsScreen,
     //Logout Screen
     LogoutScreen: LogoutScreen,
     // Recipient List Screen
     RecipientDonorListScreen: RecipientDonorListScreen,
     // Recipient List Result Screen
-    RecipientDonorListResultScreen: RecipientDonorListResultScreen
+    RecipientDonorListResultScreen: RecipientDonorListResultScreen,
+    // Recipient List Details Screen
+    RecipientDonorListDetailsScreen: RecipientDonorListDetailsScreen
   },
   {
     // By default the application will show the splash screen
