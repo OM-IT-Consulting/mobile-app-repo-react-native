@@ -6,9 +6,9 @@
 
 import { INITIAL_STATE } from './InitialState'
 import { createReducer } from 'reduxsauce'
-import { RegisterScreenOTPTypes } from './Actions'
+import { RegisterOTPTypes } from './Actions'
 
-export const loadRegisterScreenOTPInitialPageData = (state) => ({
+export const loadRegisterOTPInitialPageData = (state) => ({
   ...state,
   initialDataIsLoading: false,
   initialDataErrorMessage: null,
@@ -32,7 +32,7 @@ export const loadInitialDataFailure = (state, { errorMessage }) => ({
  * @see https://github.com/infinitered/reduxsauce#createreducer
  */
 export const reducer = createReducer(INITIAL_STATE, {
-  [RegisterScreenOTPTypes.LOAD_REGISTERSCREEN_OTPPAGE_DATA]: loadRegisterScreenOTPInitialPageData,
-  [RegisterScreenOTPTypes.LOAD_INITIAL_DATA_SUCCESS]: loadInitialDataSuccess,
-  [RegisterScreenOTPTypes.LOAD_INITIAL_DATA_FAILURE]: loadInitialDataFailure,
+  [RegisterOTPTypes.LOAD_REGISTER_OTP_INITIAL_PAGE_DATA]: loadRegisterOTPInitialPageData,
+  [RegisterOTPTypes.LOAD_INITIAL_DATA_SUCCESS]: loadInitialDataSuccess,
+  [RegisterOTPTypes.LOAD_INITIAL_DATA_FAILURE]: loadInitialDataFailure,
 })

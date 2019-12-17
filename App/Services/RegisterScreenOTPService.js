@@ -42,4 +42,4 @@ function loadInitialPageData() {
 
 export const registerScreenOTPService = {
   loadInitialPageData,
-}
+};

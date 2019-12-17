@@ -14,7 +14,7 @@ import { RecipientDonorListResultTypes } from 'App/Stores/RecipientDonorListResu
 import { AdminDonorShareTypes } from 'App/Stores/AdminDonorShare/Actions'
 import { ForgotPasswordOTPTypes } from 'App/Stores/ForgotPasswordOTP/Actions'
 import { ForgotPasswordResultTypes } from 'App/Stores/ForgotPasswordResult/Actions'
-import { RegisterScreenOTPTypes } from 'App/Stores/RegisterScreenOTP/Actions'
+import { RegisterOTPTypes } from 'App/Stores/RegisterOTP/Actions'
 import { RegisterScreenResultTypes } from 'App/Stores/RegisterScreenResult/Actions'
 import { RecipientDonorListDetailsTypes } from 'App/Stores/RecipientDonorListDetails/Actions'
 import { DonorListDetailsTypes } from 'App/Stores/DonorListDetails/Actions'
@@ -80,7 +80,7 @@ export default function* root() {
     // Call `loadForgotPasswordResultResultInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
     takeEvery(ForgotPasswordResultTypes.LOAD_FORGOT_PASSWORD_RESULT_INITIAL_PAGE_DATA, loadForgotPasswordResultInitialPageData),
     // Call `loadRegisterScreenOTPInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
-    takeEvery(RegisterScreenOTPTypes.LOAD_REGISTERSCREEN_OTP_INITIAL_PAGE_DATA, loadRegisterScreenOTPInitialPageData),
+    takeEvery(RegisterOTPTypes.LOAD_REGISTER_OTP_INITIAL_PAGE_DATA,loadRegisterScreenOTPInitialPageData),
     // Call `loadRegisterScreenResultInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
     takeEvery(RegisterScreenResultTypes.LOAD_REGISTER_SCREEN_RESULT_INITIAL_PAGE_DATA, loadRegisterScreenResultInitialPageData),
     // Call `loadRecipientDonorListDetailsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
@@ -90,8 +90,8 @@ export default function* root() {
     // Call `loadAdminListSendResponseInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
     takeEvery(AdminListSendResponseTypes.LOAD_ADMIN_LIST_SEND_RESPONSE_INITIAL_PAGE_DATA, loadAdminListSendResponseInitialPageData),
     // Call `loadAdminReportInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
-    takeEvery(AdminReportTypes.LOAD_ADMIN_REPORT_INITIAL_PAGE_DATA, loadRecipientDonorListResultInitialPageData),
+    takeEvery(AdminReportTypes.LOAD_ADMIN_REPORT_INITIAL_PAGE_DATA, loadAdminReportInitialPageData),
     // Call `loadAdminReportDetailsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
-    takeEvery(AdminReportDetailsTypes.LOAD_ADMIN_REPORT_DETAILS_INITIAL_PAGE_DATA, loadAdminReportDetailsInitialPageData)
+    takeEvery(AdminReportDetailsTypes.LOAD_ADMIN_REPORT_DETAILS_INITIAL_PAGE_DATA, loadAdminReportDetailsInitialPageData),
   ])
 }
