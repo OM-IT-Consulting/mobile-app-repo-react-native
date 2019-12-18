@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import RecipientDonorListResultActions from 'App/Stores/RecipientDonorListResult/Actions'
 import Style from './RecipientDonorListResultScreenStyle'
-import { Container, Header, Title, Form, Item, Label, Input, Picker, Content, Button, Left, Right, Body, Icon, Text, Badge } from 'native-base';
+import { Container, Header, Content, List, Icon, Title, Form, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
 import FooterBar from '../../Components/FooterBar'
 
 /**
@@ -19,6 +19,10 @@ class RecipientDonorListResultScreen extends React.Component {
 
   _onAgainSearchPressed = () => {
     this.props.navigation.navigate('RecipientDonorListScreen');
+  };
+
+  _onRequestPressed = () => {
+    this.props.navigation.navigate('RecipientDonorListDetailsScreen');
   };
 
   componentDidMount() {
@@ -42,12 +46,31 @@ class RecipientDonorListResultScreen extends React.Component {
       </Header>
       <Content>
         <Form>
-            <Item stackedLabel>
-              <Label>Name *</Label>
-              <Input
-              />
-            </Item>
-            <Button medium full onPress={this._onAgainSearchPressed}><Text> Search Donor </Text></Button>
+            <List>
+              <ListItem thumbnail>
+                <Body>
+                  <Text>Megha</Text>
+                  <Text note numberOfLines={2}>Blood Group O+, Siruseri , Chennai. Mobile No 973456789.</Text>
+                </Body>
+                <Right>
+                  <Button transparent onPress={this._onRequestPressed} >
+                    <Text>Request</Text>
+                  </Button>
+                </Right>
+              </ListItem>
+              <ListItem thumbnail>
+                <Body>
+                  <Text>Naren</Text>
+                  <Text note numberOfLines={2}>Blood Group B+, Anna Nagar , Chennai. Mobile No 988456789.</Text>
+                </Body>
+                <Right>
+                  <Button transparent onPress={this._onRequestPressed}>
+                    <Text>Request</Text>
+                  </Button>
+                </Right>
+              </ListItem>
+            </List>
+            <Button medium full onPress={this._onAgainSearchPressed}><Text> Search Donor Again</Text></Button>
         </Form>
       </Content>
       <FooterBar navigation={this.props.navigation}/>

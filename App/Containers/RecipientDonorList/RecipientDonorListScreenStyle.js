@@ -11,4 +11,13 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  selectBox: {
+    ...Fonts.style.normal,
+    textAlign: 'left',
+    marginBottom: 5,
+    height: 60, 
+    width: 300 ,
+    color: 'black',
+    fontWeight: 'bold'
+  },
 })

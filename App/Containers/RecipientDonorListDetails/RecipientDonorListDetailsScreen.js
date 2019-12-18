@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import RecipientDonorListDetailsActions from 'App/Stores/RecipientDonorListDetails/Actions'
 import Style from './RecipientDonorListDetailsScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Title, Content, List, Button, Left, Form, Item, Right, Label, Body, Icon, Text, Badge } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the RecipientDonorListDetails page of the mobile app.
@@ -23,16 +21,58 @@ class RecipientDonorListDetailsScreen extends React.Component {
     this._loadInitialPageData()
   }
 
+  _onAgainSearchPressed = () => {
+    this.props.navigation.navigate('RecipientDonorListScreen');
+  };
+
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+      <Container>
+      <Header>
+      <Left>
+          <Button
+          transparent
+          onPress={() => this.props.navigation.openDrawer()}>
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Donor Request</Title>
+        </Body>
+      </Header>
+      <Content>
+      <Form>
+      <Item>
+      <Label>
+           Donor Name : Naren
+      </Label>
+      </Item>
+      <Item>
+      <Label>
+           Mobile : 123456789
+      </Label>
+      </Item>
+      <Item>
+      <Label>
+           Place : Siruseri
+      </Label>
+      </Item>
+      <Item>
+      <Label>
+           Area : Chennai
+      </Label>
+      </Item>
+      <Item>
+      <Label style={{fontWeight: 'bold'}}>
+          Your request has been submitted successfully.
+        </Label>
+      </Item>
+
+       <Button medium full onPress={this._onAgainSearchPressed}><Text> Search Donor Again</Text></Button>
+      </Form>
+      </Content>
+      <FooterBar navigation={this.props.navigation}/>
+    </Container>
     )
   }
   

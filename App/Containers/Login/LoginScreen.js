@@ -56,13 +56,12 @@ class LoginScreen extends React.Component {
       });
       //return;
     }
-    this.props.navigation.navigate('DashBoardScreen');
+    this.props.navigation.navigate('RecipientDonorListScreen');
   };
 
   render() {
     return (
     <Background>
-      <BackButton goBack={() => this.props.navigation.navigate('SampleScreen')} />
 
       <Logo />
 

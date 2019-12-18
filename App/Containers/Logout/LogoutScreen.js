@@ -37,7 +37,8 @@ class LogoutScreen extends React.Component {
   }
   
   _loadInitialPageData() {
-    this.props.loadInitialPageData()
+    this.props.loadInitialPageData();
+    this.props.navigation.navigate('MainScreen');
   }
 }
 

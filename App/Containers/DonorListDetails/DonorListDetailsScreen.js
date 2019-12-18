@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import DonorListDetailsActions from 'App/Stores/DonorListDetails/Actions'
 import Style from './DonorListDetailsScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Content, List, Icon, Root, Item, Label, Toast, Title, Form, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the DonorListDetails page of the mobile app.
@@ -23,16 +21,90 @@ class DonorListDetailsScreen extends React.Component {
     this._loadInitialPageData()
   }
 
+  _onAcceptPressed = () => {
+    Toast.show({
+      text: 'Thanks for Accepting!!! You will receive a call from Red Cross shortly',
+      buttonText: 'Okay',
+      duration:60000
+    })
+  };
+
+  _onDenyPressed = () => {
+    Toast.show({
+      text: 'Bloor Donor Request Denied Successfully.',
+      buttonText: 'Okay',
+      duration:60000
+    })
+  };
+
+  _onDonorRequestsListPressed = () => {
+    this.props.navigation.navigate('DonorListScreen');
+  };
+
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+      <Root>
+      <Container>
+      <Header>
+      <Left>
+          <Button
+          transparent
+          onPress={() => this.props.navigation.openDrawer()}>
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Blood Receipient Details</Title>
+        </Body>
+      </Header>
+      <Content>
+      <Form>
+      <Item>
+      <Label>
+        Blood Receipient Name : Naren
+      </Label>
+      </Item>
+      <Item>
+      <Label>
+           Mobile : 123456789
+      </Label>
+      </Item>
+      <Item>
+      <Label>
+           Place : Siruseri
+      </Label>
+      </Item>
+      <Item>
+      <Label>
+           Area : Chennai
+      </Label>
+      </Item>
+      <Item>
+      <Label>
+      </Label>
+      </Item>
+      <Item>
+
+        <Button medium onPress={this._onAcceptPressed}><Text>Accept</Text></Button>
+        <Label>
+      </Label>
+      <Button medium onPress={this._onDenyPressed}><Text>Deny</Text></Button>
+
+      </Item>
+      <Item>
+      <Label>
+      </Label>
+      <Label>
+      </Label>
+      <Label>
+      </Label>
+      </Item>
+      <Button medium full onPress={this._onDonorRequestsListPressed}><Text>View Donation Requests List Again</Text></Button>
+      </Form>
+      </Content>
+      <FooterBar navigation={this.props.navigation}/>
+    </Container>
+    </Root>
     )
   }
   
