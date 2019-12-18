@@ -1,12 +1,9 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ForgotPasswordResultActions from 'App/Stores/ForgotPasswordResult/Actions'
-import Style from './ForgotPasswordResultScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Title, Content, Button, Left, Form, Item, Right, Label, Body, Icon, Text, Badge } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the ForgotPasswordResult page of the mobile app.
@@ -23,16 +20,33 @@ class ForgotPasswordResultScreen extends React.Component {
     this._loadInitialPageData()
   }
 
+  _onLoginPressed = () => {
+    this.props.navigation.navigate('MainScreen');
+  };
+
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+      <Container>
+      <Header>
+        <Body>
+          <Title>Forgot Password</Title>
+        </Body>
+      </Header>
+      <Content>
+      <Form>
+      <Item>
+        <Label style={{fontWeight: 'bold'}}>
+          Password updated successfully.
+        </Label>
+        </Item>
+
+        <Label>
+        </Label>
+
+        <Button large full onPress={this._onLoginPressed}><Text>Continue to Login</Text></Button>
+      </Form>
+      </Content>
+    </Container>
     )
   }
   

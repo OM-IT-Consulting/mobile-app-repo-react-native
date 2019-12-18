@@ -65,7 +65,7 @@ class ForgotPasswordScreen extends React.Component {
       });
       return;
     }
-    this.props.navigation.navigate('MainScreen');
+    this.props.navigation.navigate('ForgotPasswordResultScreen');
   };
 
   render() {

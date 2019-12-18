@@ -1,12 +1,9 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import RegisterScreenResultActions from 'App/Stores/RegisterScreenResult/Actions'
 import Style from './RegisterScreenResultScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Title, Content, Button, Left, Form, Item, Right, Label, Body, Icon, Text, Badge } from 'native-base';
 
 /**
  * This screen displays the RegisterScreenResult page of the mobile app.
@@ -23,16 +20,33 @@ class RegisterScreenResultScreen extends React.Component {
     this._loadInitialPageData()
   }
 
+  _onLoginPressed = () => {
+    this.props.navigation.navigate('MainScreen');
+  };
+
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+      <Container>
+      <Header>
+        <Body>
+          <Title>New User Registration</Title>
+        </Body>
+      </Header>
+      <Content>
+      <Form>
+      <Item>
+        <Label style={{fontWeight: 'bold'}}>
+          User Registration successful.
+        </Label>
+        </Item>
+
+        <Label>
+        </Label>
+
+        <Button large full onPress={this._onLoginPressed}><Text>Continue to Login</Text></Button>
+      </Form>
+      </Content>
+    </Container>
     )
   }
   

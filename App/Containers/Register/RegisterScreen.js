@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import RegisterActions from 'App/Stores/Register/Actions'
 import Style from './RegisterScreenStyle'
-import { nameValidator,genderValidator,dobValidator,emailValidator,bloodGroupValidator,frequentDonorValidator,countryValidator,stateValidator,districtValidator,talukValidator,placeValidator,areaValidator,addressValidator,pinCodeValidator } from '../../Core/utils';
+import { nameValidator,genderValidator,dobValidator,emailValidator,mobileNoValidator,bloodGroupValidator,frequentDonorValidator,countryValidator,stateValidator,districtValidator,talukValidator,placeValidator,areaValidator,addressValidator,pinCodeValidator } from '../../Core/utils';
 import { Container, Header, Content, Form, Item, Input, Left, Body, Right, Title,Icon, Label,Text,Button,Picker } from 'native-base';
 
 /**
@@ -22,6 +22,8 @@ class RegisterScreen extends React.Component {
       dobError : '',
       emailId : '',
       emailIdError : '',
+      mobileNo : '',
+      mobileNoError : '',
       bloodGroup : '',
       bloodGroupError : '',
       frequentDonor : '',
@@ -47,6 +49,7 @@ class RegisterScreen extends React.Component {
     this.handleGenderChange = this.handleGenderChange.bind(this);
     this.handleDOBChange = this.handleDOBChange.bind(this);
     this.handleEmailIdChange = this.handleEmailIdChange.bind(this);
+    this.handleMobileNoChange = this.handleMobileNoChange.bind(this);
     this.handleBloodGroupChange = this.handleBloodGroupChange.bind(this);
     this.handleFrequentDonorChange = this.handleFrequentDonorChange.bind(this);
     this.handleCountryChange = this.handleCountryChange.bind(this);
@@ -83,6 +86,12 @@ class RegisterScreen extends React.Component {
     });
   }
   
+  handleMobileNoChange(text) {
+    this.setState({
+      mobileNo: text
+    });
+  }
+
   handleBloodGroupChange(itemValue, itemIndex) {
     this.setState({
       bloodGroup: itemValue
@@ -148,6 +157,7 @@ class RegisterScreen extends React.Component {
     const emailIdError = emailValidator(this.state.emailId);
     const genderError = genderValidator(this.state.gender);
     const dobError = dobValidator(this.state.dob);
+    const mobileNoError = mobileNoValidator(this.state.mobileNo);
     const bloodGroupError = bloodGroupValidator(this.state.bloodGroup);
     const frequentDonorError = frequentDonorValidator(this.state.frequentDonor);
     const countryError = countryValidator(this.state.countryError);
@@ -165,6 +175,7 @@ class RegisterScreen extends React.Component {
         emailIdError : emailIdError,
         genderError : genderError,
         dobError : dobError,
+        mobileNoError : mobileNoError,
         bloodGroupError : bloodGroupError,
         frequentDonorError : frequentDonorError,
         countryError : countryError,
@@ -176,9 +187,9 @@ class RegisterScreen extends React.Component {
         addressError : addressError,
         pinCodeError : pinCodeError
       });
-      return;
+      //return;
     }
-    this.props.navigation.navigate('MainScreen');
+    this.props.navigation.navigate('RegisterScreenOTPScreen');
   };
 
   componentDidMount() {
@@ -238,6 +249,14 @@ class RegisterScreen extends React.Component {
             </Item>
             <Text style={{ color: "red" }}>{(this.state.emailIdError)?this.state.emailIdError:""}</Text>
 
+            <Item stackedLabel>
+              <Label>Mobile No *</Label>
+              <Input
+                value={this.state.mobileNo}
+                onChangeText={this.handleMobileNoChange}
+              />
+            </Item>
+            <Text style={{ color: "red" }}>{(this.state.mobileNoError)?this.state.mobileNoError:""}</Text>
 
             <Item stackedLabel>
               <Label>Blood Group *</Label>
@@ -368,7 +387,7 @@ class RegisterScreen extends React.Component {
               />
             </Item>
             <Text style={{ color: "red" }}>{(this.state.pinCodeError)?this.state.pinCodeError:""}</Text>
-            <Button large full onPress={this._onRegisterPressed}><Text> Register </Text></Button>
+            <Button large full onPress={this._onRegisterPressed}><Text> Next </Text></Button>
           </Form>
         </Content>
       </Container>
