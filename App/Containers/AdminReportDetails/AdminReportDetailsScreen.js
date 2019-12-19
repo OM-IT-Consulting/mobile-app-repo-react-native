@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import AdminReportDetailsActions from 'App/Stores/AdminReportDetails/Actions'
 import Style from './AdminReportDetailsScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Content, List, Icon, Title, Form, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the AdminReportDetails page of the mobile app.
@@ -23,16 +21,56 @@ class AdminReportDetailsScreen extends React.Component {
     this._loadInitialPageData()
   }
 
+  _onSharePressed = () => {
+    this.props.navigation.navigate('AdminDonorShareScreen');
+  };
+
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+        
+      <Container>
+      <Header>
+        <Left>
+          <Button
+          transparent
+          onPress={() => this.props.navigation.openDrawer()}>
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title numberOfLines={2}>Donor List for Megha(Heart Surgery)</Title>
+        </Body>
+      </Header>
+      <Content>
+        <Form>
+            <List>
+              <ListItem thumbnail>
+                <Body>
+                  <Text>Megha</Text>
+                  <Text note numberOfLines={2}>Blood Group O+, Siruseri , Chennai. Mobile No 973456789.</Text>
+                </Body>
+                <Right>
+                  <Button transparent onPress={this._onSharePressed} >
+                    <Text>Share</Text>
+                  </Button>
+                </Right>
+              </ListItem>
+              <ListItem thumbnail>
+                <Body>
+                  <Text>Sivaram</Text>
+                  <Text note numberOfLines={2}>Blood Group B+, Anna Nagar , Chennai. Mobile No 988456789.</Text>
+                </Body>
+                <Right>
+                  <Button transparent onPress={this._onSharePressed}>
+                    <Text>Share</Text>
+                  </Button>
+                </Right>
+              </ListItem>
+            </List>
+        </Form>
+      </Content>
+      <FooterBar navigation={this.props.navigation}/>
+    </Container>
     )
   }
   

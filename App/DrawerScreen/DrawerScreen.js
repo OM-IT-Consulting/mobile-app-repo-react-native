@@ -20,18 +20,23 @@ class DrawerScreen extends Component {
         <ScrollView>
           <View>
             <View style={styles.menuItem}>
+              <Text onPress={this.navigateToScreen('RecipientDonorListScreen')}>
+                Search Donors
+              </Text>
+            </View>
+            <View style={styles.menuItem}>
               <Text onPress={this.navigateToScreen('DonorListScreen')}>
-                Donor List
+                Search Blood Requirements
+              </Text>
+            </View>
+            <View style={styles.menuItem}>
+              <Text onPress={this.navigateToScreen('AdminReportScreen')}>
+                Share Donors
               </Text>
             </View>
             <View style={styles.menuItem}>
               <Text onPress={this.navigateToScreen('AdminListScreen')}>
-               Admin List
-              </Text>
-            </View>
-            <View style={styles.menuItem}>
-              <Text onPress={this.navigateToScreen('RecipientDonorListScreen')}>
-              Recipient Donor List
+                Send Response To Donors
               </Text>
             </View>
             <View style={styles.menuItem}>

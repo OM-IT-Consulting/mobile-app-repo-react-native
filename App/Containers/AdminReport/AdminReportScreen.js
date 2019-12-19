@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import AdminReportActions from 'App/Stores/AdminReport/Actions'
 import Style from './AdminReportScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Content, List, Icon, Title, Form, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the AdminReport page of the mobile app.
@@ -23,16 +21,55 @@ class AdminReportScreen extends React.Component {
     this._loadInitialPageData()
   }
 
+  _onRequestPressed = () => {
+    this.props.navigation.navigate('AdminReportDetailsScreen');
+  };
+
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+      <Container>
+      <Header>
+        <Left>
+          <Button
+          transparent
+          onPress={() => this.props.navigation.openDrawer()}>
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Blood Requirements</Title>
+        </Body>
+      </Header>
+      <Content>
+        <Form>
+            <List>
+              <ListItem thumbnail>
+                <Body>
+                  <Text>Megha</Text>
+                  <Text note numberOfLines={4}>Date Requested:19/12/2019, Blood Group: O+ , Apollo MultiSpeciality Hospital, Teynampet for Heart Surgery. Mobile No 973456789.</Text>
+                </Body>
+                <Right>
+                  <Button transparent onPress={this._onRequestPressed} >
+                    <Text>Share</Text>
+                  </Button>
+                </Right>
+              </ListItem>
+              <ListItem thumbnail>
+                <Body>
+                  <Text>Naren</Text>
+                  <Text note numberOfLines={4}>Date Requested:18/12/2019, Blood Group: O+ , Apollo Cancer Hospital, Teynampet for Brain Surgery. Mobile No 97347779.</Text>
+                </Body>
+                <Right>
+                  <Button transparent onPress={this._onRequestPressed}>
+                    <Text>Share</Text>
+                  </Button>
+                </Right>
+              </ListItem>
+            </List>
+        </Form>
+      </Content>
+      <FooterBar navigation={this.props.navigation}/>
+    </Container>
     )
   }
   

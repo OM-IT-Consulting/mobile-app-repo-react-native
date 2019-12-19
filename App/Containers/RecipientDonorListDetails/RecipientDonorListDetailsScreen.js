@@ -44,7 +44,7 @@ class RecipientDonorListDetailsScreen extends React.Component {
       <Form>
       <Item>
       <Label>
-           Donor Name : Naren
+           Donor Name : Sivaram
       </Label>
       </Item>
       <Item>

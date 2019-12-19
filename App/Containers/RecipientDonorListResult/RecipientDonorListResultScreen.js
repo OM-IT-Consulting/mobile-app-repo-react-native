@@ -60,7 +60,7 @@ class RecipientDonorListResultScreen extends React.Component {
               </ListItem>
               <ListItem thumbnail>
                 <Body>
-                  <Text>Naren</Text>
+                  <Text>Sivaram</Text>
                   <Text note numberOfLines={2}>Blood Group B+, Anna Nagar , Chennai. Mobile No 988456789.</Text>
                 </Body>
                 <Right>
