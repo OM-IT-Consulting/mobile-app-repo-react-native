@@ -22,6 +22,10 @@ import AdminListSendResponseScreen from 'App/Containers/AdminListSendResponse/Ad
 import AdminReportScreen from 'App/Containers/AdminReport/AdminReportScreen'
 import AdminReportDetailsScreen from 'App/Containers/AdminReportDetails/AdminReportDetailsScreen'
 import ForgotPasswordOTPScreen from 'App/Containers/ForgotPasswordOTP/ForgotPasswordOTPScreen'
+import ContactUsScreen from 'App/Containers/ContactUs/ContactUsScreen'
+import RecipientNotificationScreen from 'App/Containers/RecipientNotification/RecipientNotificationScreen'
+import DonorNotificationScreen from 'App/Containers/DonorNotification/DonorNotificationScreen'
+import AdminNotificationScreen from 'App/Containers/AdminNotification/AdminNotificationScreen'
 import DrawerScreen from "../DrawerScreen/DrawerScreen";
 
 /**
@@ -74,7 +78,15 @@ const StackNavigator = createDrawerNavigator(
     // Recipient List Result Screen
     RecipientDonorListResultScreen: RecipientDonorListResultScreen,
     // Recipient List Details Screen
-    RecipientDonorListDetailsScreen: RecipientDonorListDetailsScreen
+    RecipientDonorListDetailsScreen: RecipientDonorListDetailsScreen,
+    //ContactUs Screen
+    ContactUsScreen: ContactUsScreen,
+    //RecipientNotification Screen
+    RecipientNotificationScreen: RecipientNotificationScreen,
+    //DonorNotification Screen
+    DonorNotificationScreen: DonorNotificationScreen,
+    //AdminNotification Screen
+    AdminNotificationScreen: AdminNotificationScreen,
   },
   {
     // By default the application will show the splash screen

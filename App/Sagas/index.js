@@ -21,6 +21,10 @@ import { DonorListDetailsTypes } from 'App/Stores/DonorListDetails/Actions'
 import { AdminListSendResponseTypes } from 'App/Stores/AdminListSendResponse/Actions'
 import { AdminReportTypes } from 'App/Stores/AdminReport/Actions'
 import { AdminReportDetailsTypes } from 'App/Stores/AdminReportDetails/Actions'
+import { ContactUsTypes } from 'App/Stores/ContactUs/Actions'
+import { RecipientNotificationTypes } from 'App/Stores/RecipientNotification/Actions'
+import { AdminNotificationTypes } from 'App/Stores/AdminNotification/Actions'
+import { DonorNotificationTypes } from 'App/Stores/DonorNotification/Actions'
 import { fetchUser } from './ExampleSaga'
 import { startup } from './StartupSaga'
 import { loadInitialPageData } from './LoginSaga'
@@ -43,6 +47,10 @@ import { loadDonorListDetailsInitialPageData } from './DonorListDetailsSaga'
 import { loadAdminListSendResponseInitialPageData } from './AdminListSendResponseSaga'
 import { loadAdminReportInitialPageData } from './AdminReportSaga'
 import { loadAdminReportDetailsInitialPageData } from './AdminReportDetailsSaga'
+import { loadContactUsInitialPageData } from './ContactUsSaga'
+import { loadRecipientNotificationInitialPageData } from './RecipientNotificationSaga'
+import { loadDonorNotificationInitialPageData } from './DonorNotificationSaga'
+import { loadAdminNotificationInitialPageData } from './AdminNotificationSaga'
 
 export default function* root() {
   yield all([
@@ -93,5 +101,7 @@ export default function* root() {
     takeEvery(AdminReportTypes.LOAD_ADMIN_REPORT_INITIAL_PAGE_DATA, loadAdminReportInitialPageData),
     // Call `loadAdminReportDetailsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
     takeEvery(AdminReportDetailsTypes.LOAD_ADMIN_REPORT_DETAILS_INITIAL_PAGE_DATA, loadAdminReportDetailsInitialPageData),
+    // Call `loadContactUsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeLatest(ContactUsTypes.LOAD_CONTACTUS_INITIAL_PAGE_DATA, loadContactUsInitialPageData)
   ])
 }
