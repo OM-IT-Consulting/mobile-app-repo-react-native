@@ -84,12 +84,10 @@ class DonorListDetailsScreen extends React.Component {
       </Label>
       </Item>
       <Item>
-
-        <Button medium onPress={this._onAcceptPressed}><Text>Accept</Text></Button>
-        <Label>
+      <Button medium onPress={this._onAcceptPressed}><Text>Accept</Text></Button>
+      <Label>
       </Label>
       <Button medium onPress={this._onDenyPressed}><Text>Deny</Text></Button>
-
       </Item>
       <Item>
       <Label>

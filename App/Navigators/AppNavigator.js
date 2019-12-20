@@ -59,6 +59,8 @@ const StackNavigator = createDrawerNavigator(
     DonorListDetailsScreen: DonorListDetailsScreen,
     // HomePage for the admin
     AdminListScreen: AdminListScreen,
+    //Admin List Send Response Screen
+    AdminListSendResponseScreen: AdminListSendResponseScreen,
     // Screen to Share the details to donor for admin
     AdminDonorShareScreen: AdminDonorShareScreen,
     // Report Screen for Admin

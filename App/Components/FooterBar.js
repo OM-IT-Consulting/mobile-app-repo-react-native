@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text, Badge } from 'native-base';
+import {Share} from 'react-native';
 
 class FooterBar extends React.Component {
 
@@ -11,6 +12,27 @@ class FooterBar extends React.Component {
       this.props.navigation.navigate('MainScreen');
     };
 
+    onShare = async () => {
+      try {
+        const result = await Share.share({
+          message:
+            'Red Cross Mobile App - App to share details about blood donation. Please download from AppStore',
+        });
+  
+        if (result.action === Share.sharedAction) {
+          if (result.activityType) {
+            // shared with activity type of result.activityType
+          } else {
+            // shared
+          }
+        } else if (result.action === Share.dismissedAction) {
+          // dismissed
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+
     render() {
         return (
           <Footer>
@@ -20,7 +42,7 @@ class FooterBar extends React.Component {
               <Icon name="apps" />
               <Text>Apps</Text>
             </Button>
-            <Button vertical>
+            <Button vertical onPress={this.onShare}>
               <Icon name="share" />
               <Text>Share</Text>
             </Button>

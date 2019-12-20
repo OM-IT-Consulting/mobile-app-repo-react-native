@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import AdminListSendResponseActions from 'App/Stores/AdminListSendResponse/Actions'
 import Style from './AdminListSendResponseScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Root, Toast, Label, Content, CheckBox, List, Icon, Title, Form, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the AdminListSendResponse page of the mobile app.
@@ -23,16 +21,53 @@ class AdminListSendResponseScreen extends React.Component {
     this._loadInitialPageData()
   }
 
+  _onSendResponsePressed = () => {
+    console.log('_onSendResponsePressed');
+    Toast.show({
+      text: 'Thanks !!! response message sent successfully.',
+      buttonText: 'Okay',
+      duration:60000
+    })
+  };
+
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+       <Root>
+        <Container>
+          <Header>
+            <Left>
+              <Button
+              transparent
+              onPress={() => this.props.navigation.openDrawer()}>
+                <Icon name='menu' />
+              </Button>
+            </Left>
+            <Body>
+              <Title numberOfLines={2}>Donor List for Megha(Heart Surgery)</Title>
+            </Body>
+          </Header>
+          <Content>
+            <Form>
+                <List>
+                  <ListItem>
+                    <CheckBox checked={true} />
+                    <Body>
+                        <Text note numberOfLines={3}><Label style={{fontWeight: 'bold'}}>Megha</Label>.Blood Group O+, Siruseri , Chennai. Mobile No 973456789.</Text>
+                    </Body>
+                  </ListItem>
+                  <ListItem>
+                    <CheckBox checked={true} />
+                    <Body>
+                        <Text note numberOfLines={3}><Label style={{fontWeight: 'bold'}}>Sivaram</Label>.Blood Group B+, Anna Nagar , Chennai. Mobile No 988456789.</Text>
+                    </Body>
+                  </ListItem>
+                </List>
+                <Button medium full onPress={this._onSendResponsePressed}><Text> Send Response to Donors</Text></Button>
+            </Form>
+          </Content>
+          <FooterBar navigation={this.props.navigation}/>
+        </Container>
+        </Root>
     )
   }
   
