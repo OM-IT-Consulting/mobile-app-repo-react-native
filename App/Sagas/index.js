@@ -1,10 +1,10 @@
 import { takeLatest, all, takeEvery } from 'redux-saga/effects'
+import { SupportTypes } from 'App/Stores/Support/Actions'
 import { ExampleTypes } from 'App/Stores/Example/Actions'
 import { StartupTypes } from 'App/Stores/Startup/Actions'
 import { LoginTypes } from 'App/Stores/Login/Actions'
 import { SampleTypes } from 'App/Stores/Sample/Actions'
 import { ForgotPasswordTypes } from 'App/Stores/ForgotPassword/Actions'
-import { RegisterTypes } from 'App/Stores/Register/Actions'
 import { DashBoardTypes } from 'App/Stores/DashBoard/Actions'
 import { DonorListTypes } from 'App/Stores/DonorList/Actions'
 import { AdminListTypes } from 'App/Stores/AdminList/Actions'
@@ -21,16 +21,11 @@ import { DonorListDetailsTypes } from 'App/Stores/DonorListDetails/Actions'
 import { AdminListSendResponseTypes } from 'App/Stores/AdminListSendResponse/Actions'
 import { AdminReportTypes } from 'App/Stores/AdminReport/Actions'
 import { AdminReportDetailsTypes } from 'App/Stores/AdminReportDetails/Actions'
-import { ContactUsTypes } from 'App/Stores/ContactUs/Actions'
-import { RecipientNotificationTypes } from 'App/Stores/RecipientNotification/Actions'
-import { AdminNotificationTypes } from 'App/Stores/AdminNotification/Actions'
-import { DonorNotificationTypes } from 'App/Stores/DonorNotification/Actions'
 import { fetchUser } from './ExampleSaga'
 import { startup } from './StartupSaga'
 import { loadInitialPageData } from './LoginSaga'
 import { loadSampleInitialPageData } from './SampleSaga'
 import { loadForgotPasswordInitialPageData } from './ForgotPasswordSaga'
-import { loadRegisterInitialPageData } from './RegisterSaga'
 import { loadDashBoardInitialPageData } from './DashBoardSaga'
 import { loadDonorListInitialPageData } from './DonorListSaga'
 import { loadAdminListInitialPageData } from './AdminListSaga'
@@ -47,10 +42,7 @@ import { loadDonorListDetailsInitialPageData } from './DonorListDetailsSaga'
 import { loadAdminListSendResponseInitialPageData } from './AdminListSendResponseSaga'
 import { loadAdminReportInitialPageData } from './AdminReportSaga'
 import { loadAdminReportDetailsInitialPageData } from './AdminReportDetailsSaga'
-import { loadContactUsInitialPageData } from './ContactUsSaga'
-import { loadRecipientNotificationInitialPageData } from './RecipientNotificationSaga'
-import { loadDonorNotificationInitialPageData } from './DonorNotificationSaga'
-import { loadAdminNotificationInitialPageData } from './AdminNotificationSaga'
+import { loadSupportInitialPageData } from './SupportSaga'
 
 export default function* root() {
   yield all([
@@ -67,8 +59,8 @@ export default function* root() {
     takeEvery(SampleTypes.LOAD_SAMPLE_INITIAL_PAGE_DATA, loadSampleInitialPageData),
     // Call `loadForgotPasswordInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
     takeLatest(ForgotPasswordTypes.LOAD_FORGOT_PASSWORD_INITIAL_PAGE_DATA, loadForgotPasswordInitialPageData),
-    // Call `loadRegisterInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
-    takeEvery(RegisterTypes.LOAD_REGISTER_INITIAL_PAGE_DATA, loadRegisterInitialPageData),
+    // Call `loadContactUsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
+    takeLatest(SupportTypes.LOAD_SUPPORT_INITIAL_PAGE_DATA, loadSupportInitialPageData),
     // Call `loadDashBoardInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
     takeEvery(DashBoardTypes.LOAD_DASH_BOARD_INITIAL_PAGE_DATA, loadDashBoardInitialPageData),
     // Call `loadDonorListInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
@@ -101,7 +93,5 @@ export default function* root() {
     takeEvery(AdminReportTypes.LOAD_ADMIN_REPORT_INITIAL_PAGE_DATA, loadAdminReportInitialPageData),
     // Call `loadAdminReportDetailsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
     takeEvery(AdminReportDetailsTypes.LOAD_ADMIN_REPORT_DETAILS_INITIAL_PAGE_DATA, loadAdminReportDetailsInitialPageData),
-    // Call `loadContactUsInitialPageData()` when a `LOAD_INITIAL_PAGE_DATA` action is triggered
-    takeLatest(ContactUsTypes.LOAD_CONTACTUS_INITIAL_PAGE_DATA, loadContactUsInitialPageData)
   ])
 }

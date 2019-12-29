@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
-import RecipientNotificationActions from 'App/Stores/RecipientNotification/Actions'
+import SupportActions from 'App/Stores/Support/Actions'
 import Style from './RecipientNotificationScreenStyle'
 import Background from '../../Components/Background';
 import Logo from '../../Components/Logo';
@@ -55,7 +55,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-   loadInitialPageData: () => dispatch(RecipientNotificationActions.loadRecipientNotificationInitialPageData()),
+   loadInitialPageData: () => dispatch(SupportActions.loadSupportInitialPageData()),
 })
 
 export default connect(

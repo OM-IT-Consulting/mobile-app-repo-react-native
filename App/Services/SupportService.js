@@ -27,7 +27,7 @@ const userApiClient = axios.create({
 
 function loadInitialPageData() {
 
-  return {"payload":"AdminNotification Page"}
+  return {"payload":"Sample Page"}
 
   /*
   return userApiClient.get(number.toString()).then((response) => {
@@ -40,6 +40,6 @@ function loadInitialPageData() {
   */
 }
 
-export const adminNotificationService = {
-  loadInitialPageData,
+export const supportService = {
+  loadInitialPageData
 }

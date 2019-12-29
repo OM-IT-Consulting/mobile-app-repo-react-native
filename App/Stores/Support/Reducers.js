@@ -6,9 +6,9 @@
 
 import { INITIAL_STATE } from './InitialState'
 import { createReducer } from 'reduxsauce'
-import { RecipientNotificationTypes } from './Actions'
+import { SupportTypes } from './Actions'
 
-export const loadRecipientNotificationInitialPageData = (state) => ({
+export const loadSupportInitialPageData = (state) => ({
   ...state,
   initialDataIsLoading: false,
   initialDataErrorMessage: null,
@@ -32,7 +32,7 @@ export const loadInitialDataFailure = (state, { errorMessage }) => ({
  * @see https://github.com/infinitered/reduxsauce#createreducer
  */
 export const reducer = createReducer(INITIAL_STATE, {
-  [RecipientNotificationTypes.LOAD_RECIPI_NOTIFY_INITIAL_PAGE_DATA]: loadRecipientNotificationInitialPageData,
-  [RecipientNotificationTypes.LOAD_INITIAL_DATA_SUCCESS]: loadInitialDataSuccess,
-  [RecipientNotificationTypes.LOAD_INITIAL_DATA_FAILURE]: loadInitialDataFailure,
+  [SupportTypes.LOAD_SUPPORT_INITIAL_PAGE_DATA]: loadSupportInitialPageData,
+  [SupportTypes.LOAD_INITIAL_DATA_SUCCESS]: loadInitialDataSuccess,
+  [SupportTypes.LOAD_INITIAL_DATA_FAILURE]: loadInitialDataFailure,
 })
