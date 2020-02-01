@@ -68,7 +68,7 @@ class RecipientDonorListScreen extends React.Component {
   render() {
     return (
       <Container>
-      <Header>
+      <Header style={{backgroundColor: 'red'}}>
         <Left>
           <Button
           transparent
@@ -124,7 +124,7 @@ class RecipientDonorListScreen extends React.Component {
             </Item>
             <Text style={{ color: "red" }}>{(this.state.bloodGroupError)?this.state.bloodGroupError:""}</Text>
 
-            <Button medium full onPress={this._onSearchPressed}><Text> Search Donor </Text></Button>
+            <Button style={{backgroundColor: 'red'}} medium full onPress={this._onSearchPressed}><Text> Search Donor </Text></Button>
         </Form>
       </Content>
       <FooterBar navigation={this.props.navigation}/>
