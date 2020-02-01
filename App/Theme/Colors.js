@@ -11,7 +11,7 @@ export default {
   ...DefaultTheme.colors,
   //Example colors:
   text: '#212529',
-  primary: '#600EE6',
+  primary: '#ff0000',
   secondary: '#414757',
   success: '#28a745',
   error: '#dc3545',

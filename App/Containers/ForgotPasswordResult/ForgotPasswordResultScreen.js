@@ -27,7 +27,7 @@ class ForgotPasswordResultScreen extends React.Component {
   render() {
     return (
       <Container>
-      <Header>
+      <Header style={{backgroundColor: 'red'}}>
         <Body>
           <Title>Forgot Password</Title>
         </Body>
@@ -43,7 +43,7 @@ class ForgotPasswordResultScreen extends React.Component {
         <Label>
         </Label>
 
-        <Button large full onPress={this._onLoginPressed}><Text>Continue to Login</Text></Button>
+        <Button style={{backgroundColor: 'red'}} large full onPress={this._onLoginPressed}><Text>Continue to Login</Text></Button>
       </Form>
       </Content>
     </Container>

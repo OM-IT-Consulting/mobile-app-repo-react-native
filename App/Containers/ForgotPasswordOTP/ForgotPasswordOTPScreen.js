@@ -52,7 +52,7 @@ class ForgotPasswordOTPScreen extends React.Component {
   
       <Header>Forgot Password</Header>
 
-        <Text style={Style.label}>Please Enter mobile no to send OTP</Text>
+        <Text style={Style.label}>Please enter the registered mobile no to send OTP</Text>
         <TextInput
           returnKeyType="next"
           value={this.state.mobileNo}
@@ -65,7 +65,7 @@ class ForgotPasswordOTPScreen extends React.Component {
           keyboardType="phone-pad"
         />
         
-        <Button mode="contained" onPress={this._onSendOTPPressed}>
+        <Button mode="contained" color="red" onPress={this._onSendOTPPressed}>
           Send OTP
         </Button>
 

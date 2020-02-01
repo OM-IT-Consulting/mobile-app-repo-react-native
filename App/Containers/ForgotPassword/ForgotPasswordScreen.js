@@ -113,7 +113,7 @@ class ForgotPasswordScreen extends React.Component {
         keyboardType="default"
       />
 
-      <Button mode="contained" onPress={this._onResetPressed}>
+      <Button mode="contained" color="red" onPress={this._onResetPressed}>
         Reset
       </Button>
 

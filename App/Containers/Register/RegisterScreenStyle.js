@@ -70,7 +70,7 @@ export default StyleSheet.create({
     marginTop: 4,
   },
   label: {
-    color: Colors.secondary,
+    color: 'red',
   },
   link: {
     fontWeight: 'bold',

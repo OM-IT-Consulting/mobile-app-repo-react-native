@@ -50,13 +50,13 @@ class AdminListSendResponseScreen extends React.Component {
             <Form>
                 <List>
                   <ListItem>
-                    <CheckBox checked={true} />
+                    <CheckBox/>
                     <Body>
                         <Text note numberOfLines={3}><Label style={{fontWeight: 'bold'}}>Megha</Label>.Blood Group O+, Siruseri , Chennai. Mobile No 973456789.</Text>
                     </Body>
                   </ListItem>
                   <ListItem>
-                    <CheckBox checked={true} />
+                    <CheckBox/>
                     <Body>
                         <Text note numberOfLines={3}><Label style={{fontWeight: 'bold'}}>Sivaram</Label>.Blood Group B+, Anna Nagar , Chennai. Mobile No 988456789.</Text>
                     </Body>

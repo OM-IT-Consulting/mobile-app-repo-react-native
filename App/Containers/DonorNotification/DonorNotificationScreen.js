@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import SupportActions from 'App/Stores/Support/Actions'
 import Style from './DonorNotificationScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Content, List, Icon, Title, Form, ListItem, Thumbnail, Text, Left, Body, Right, Button } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the DonorNotification page of the mobile app.
@@ -25,14 +23,39 @@ class DonorNotificationScreen extends React.Component {
 
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+      <Container>
+      <Header>
+        <Left>
+          <Button
+          transparent
+          onPress={() => this.props.navigation.openDrawer()}>
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Notifications</Title>
+        </Body>
+      </Header>
+      <Content>
+        <Form>
+            <List>
+              <ListItem thumbnail>
+                <Body>
+                  <Text>Blood Donation to Megha</Text>
+                  <Text note numberOfLines={2}>Thank you for donating blood to Megha in Apollo Hospital.</Text>
+                </Body>
+              </ListItem>
+              <ListItem thumbnail>
+                <Body>
+                  <Text>Blood Donation to Prem</Text>
+                  <Text note numberOfLines={2}>Thanks for the interest shown. We will contact you if we have any future requirements.</Text>
+                </Body>
+              </ListItem>
+            </List>
+        </Form>
+      </Content>
+      <FooterBar navigation={this.props.navigation}/>
+    </Container>
     )
   }
   

@@ -56,7 +56,7 @@ class RecipientDonorListScreen extends React.Component {
         placeError : placeError,
         areaError : areaError
       });
-      //return;
+      return;
     }
     this.props.navigation.navigate('RecipientDonorListResultScreen');
   };

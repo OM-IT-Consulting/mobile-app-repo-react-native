@@ -12,6 +12,14 @@ class FooterBar extends React.Component {
       this.props.navigation.navigate('MainScreen');
     };
 
+    _onContactUsPressed = () => {
+      this.props.navigation.navigate('ContactUsScreen');
+    };
+
+    _onNotificationPressed = () => {
+      this.props.navigation.navigate('DonorNotificationScreen');
+    };
+
     onShare = async () => {
       try {
         const result = await Share.share({
@@ -36,21 +44,21 @@ class FooterBar extends React.Component {
     render() {
         return (
           <Footer>
-            <FooterTab>
-            <Button badge vertical>
+            <FooterTab style={{backgroundColor: 'red'}}>
+            <Button style={{backgroundColor: 'red'}} badge vertical onPress={this._onNotificationPressed}>
               <Badge><Text>2</Text></Badge>
               <Icon name="apps" />
               <Text>Apps</Text>
             </Button>
-            <Button vertical onPress={this.onShare}>
+            <Button style={{backgroundColor: 'red'}} vertical onPress={this.onShare}>
               <Icon name="share" />
               <Text>Share</Text>
             </Button>
-            <Button vertical>
+            <Button style={{backgroundColor: 'red'}} vertical onPress={this._onContactUsPressed}>
               <Icon name="person" />
               <Text>Contact</Text>
             </Button>
-            <Button vertical onPress={this._onLogoutPressed}>
+            <Button style={{backgroundColor: 'red'}} vertical onPress={this._onLogoutPressed}>
               <Icon name="log-out" />
               <Text>Logout</Text>
             </Button>

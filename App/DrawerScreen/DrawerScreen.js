@@ -40,7 +40,7 @@ class DrawerScreen extends Component {
               </Text>
             </View>
             <View style={styles.menuItem}>
-              <Text onPress={this.navigateToScreen('LogoutScreen')}>
+              <Text onPress={this.navigateToScreen('MainScreen')}>
               Logout
               </Text>
             </View>

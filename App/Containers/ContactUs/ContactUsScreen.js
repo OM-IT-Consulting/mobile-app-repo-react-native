@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, View, ActivityIndicator, Image,TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import ContactUsActions from 'App/Stores/ContactUs/Actions'
 import Style from './ContactUsScreenStyle'
-import Background from '../../Components/Background';
-import Logo from '../../Components/Logo';
-import Header from '../../Components/Header';
+import { Container, Header, Title, Content, Button, Left, Right, Body, Icon, Text, Badge } from 'native-base';
+import FooterBar from '../../Components/FooterBar'
 
 /**
  * This screen displays the ContactUs page of the mobile app.
@@ -25,14 +23,32 @@ class ContactUsScreen extends React.Component {
 
   render() {
     return (
-        <Background>
-  
-        <Logo />
-  
-        <Header>Welcome to Red Cross.</Header>
-        <Text style={Style.label}>{this.props.initialData.payload}</Text>
-  
-      </Background>
+      <Container>
+      <Header>
+        <Left>
+          <Button
+          transparent
+          onPress={() => this.props.navigation.openDrawer()}>
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Support Page</Title>
+        </Body>
+      </Header>
+      <Content>
+        <Text>
+          
+        </Text>
+        <Text>
+          
+        </Text>
+        <Text>
+          For any support please email to support@redcross.com
+        </Text>
+      </Content>
+      <FooterBar navigation={this.props.navigation}/>
+    </Container>
     )
   }
   

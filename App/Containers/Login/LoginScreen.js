@@ -54,7 +54,7 @@ class LoginScreen extends React.Component {
         emailError : emailError , 
         passwordError : passwordError 
       });
-      //return;
+      return;
     }
     this.props.navigation.navigate('RecipientDonorListScreen');
   };
@@ -65,9 +65,9 @@ class LoginScreen extends React.Component {
 
       <Logo />
 
-      <Header>Welcome to Red Cross.</Header>
+      <Header>Welcome to Blood Donor Application.</Header>
 
-      <Text style={Style.label}>Email Id</Text>
+      <Text style={Style.label}>Email Id / Mobile Number</Text>
       <TextInput
         returnKeyType="next"
         value={this.state.email}
@@ -97,7 +97,7 @@ class LoginScreen extends React.Component {
         </TouchableOpacity>
       </View>
 
-      <Button mode="contained" onPress={this._onLoginPressed}>
+      <Button mode="contained" color="red" onPress={this._onLoginPressed}>
         Login
       </Button>
 

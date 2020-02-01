@@ -199,10 +199,10 @@ class RegisterScreen extends React.Component {
   render() {
     return (
       <Container>
-        <Header>
+        <Header style={{ backgroundColor: "red" }}>
           <Left/>
           <Body>
-            <Title >New User Registration</Title>
+            <Title style={{ color: "white" }}>New User Registration</Title>
           </Body>
         </Header>
         <Content>
@@ -387,7 +387,7 @@ class RegisterScreen extends React.Component {
               />
             </Item>
             <Text style={{ color: "red" }}>{(this.state.pinCodeError)?this.state.pinCodeError:""}</Text>
-            <Button large full onPress={this._onRegisterPressed}><Text> Next </Text></Button>
+            <Button style={{ backgroundColor: "red" }} large full onPress={this._onRegisterPressed}><Text> Next </Text></Button>
           </Form>
         </Content>
       </Container>
